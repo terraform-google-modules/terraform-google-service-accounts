@@ -21,7 +21,7 @@ provider "google" {
 module "service_accounts" {
   source        = "../.."
   project_id    = "${var.project_id}"
-  prefix        = "single-test"
-  names         = ["first"]
+  prefix        = "${var.prefix}"
+  names         = ["single-account"]
   project_roles = ["${var.project_id}=>roles/viewer"]
 }

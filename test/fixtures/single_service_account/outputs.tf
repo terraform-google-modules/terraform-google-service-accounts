@@ -14,12 +14,17 @@
  * limitations under the License.
  */
 
-output "bucket_name" {
-  description = "The name of the bucket."
-  value       = "${module.example.bucket_name}"
+output "email" {
+  description = "The service account email."
+  value       = "${module.example.email}"
+}
+
+output "iam_email" {
+  description = "The service account IAM-format email."
+  value       = "${module.example.iam_email}"
 }
 
 output "project_id" {
-  description = "The ID of the project in which resources are provisioned."
+  description = "Project id variable."
   value       = "${var.project_id}"
 }
