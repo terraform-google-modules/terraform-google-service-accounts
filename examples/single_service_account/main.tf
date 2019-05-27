@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,12 +15,13 @@
  */
 
 provider "google" {
-  version = "~> 2.0"
+  version = "~> 2.7.0"
 }
 
 module "service_accounts" {
-  source = "../.."
-
-  project_id  = "${var.project_id}"
-  bucket_name = "${var.bucket_name}"
+  source        = "../.."
+  project_id    = "${var.project_id}"
+  prefix        = "single-test"
+  names         = ["first"]
+  project_roles = ["${var.project_id}=>roles/viewer"]
 }

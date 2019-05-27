@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,6 +14,44 @@
  * limitations under the License.
  */
 
-output "bucket_name" {
-  value = "${google_storage_bucket.main.name}"
+output "email" {
+  description = "Service account email (single-use case)."
+  value       = "${element(google_service_account.service_accounts.*.email, 0)}"
+}
+
+output "iam_email" {
+  description = "IAM-format service account email (single-use case)."
+  value       = "serviceAccount:${element(google_service_account.service_accounts.*.email, 0)}"
+}
+
+output "emails" {
+  description = "Map of service account emails."
+  value       = "${zipmap(var.names, google_service_account.service_accounts.*.email)}"
+}
+
+output "iam_emails" {
+  description = "IAM-format service account emails."
+  value       = "${zipmap(var.names, formatlist("serviceAccount:%s", google_service_account.service_accounts.*.email))}"
+}
+
+data "template_file" "keys" {
+  count    = "${length(var.names)}"
+  template = "$${key}"
+
+  vars {
+    key = "${
+      var.generate_keys
+      ? base64decode(element(
+        concat(google_service_account_key.keys.*.private_key, list("")),
+        count.index
+      ))
+      : ""
+    }"
+  }
+}
+
+output "keys" {
+  description = "Map of service account keys."
+  sensitive   = true
+  value       = "${zipmap(formatlist("%s-key.json", var.names), data.template_file.keys.*.rendered)}"
 }

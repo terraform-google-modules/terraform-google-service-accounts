@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,19 @@
  * limitations under the License.
  */
 
-output "bucket_name" {
-  description = "The name of the bucket."
-  value       = "${module.service_accounts.bucket_name}"
+provider "google" {
+  version = "~> 2.7.0"
+}
+
+module "service_accounts" {
+  source        = "../.."
+  project_id    = "${var.project_id}"
+  prefix        = ""
+  names         = ["test-first", "test-second"]
+  generate_keys = true
+
+  project_roles = [
+    "${var.project_id}=>roles/viewer",
+    "${var.project_id}=>roles/storage.objectViewer",
+  ]
 }

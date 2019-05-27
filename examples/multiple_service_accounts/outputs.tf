@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,12 +14,17 @@
  * limitations under the License.
  */
 
-variable "project_id" {
-  description = "The ID of the project in which to provision resources."
-  type        = "string"
+output "emails" {
+  description = "The service account emails."
+  value       = "${values(module.service_accounts.emails)}"
 }
 
-variable "bucket_name" {
-  description = "The name of the bucket to create."
-  type        = "string"
+output "iam_emails" {
+  description = "The service account IAM-format emails."
+  value       = "${values(module.service_accounts.iam_emails)}"
+}
+
+output "keys" {
+  description = "The service account keys."
+  value       = "${module.service_accounts.keys}"
 }

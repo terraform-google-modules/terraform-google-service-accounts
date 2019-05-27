@@ -4,6 +4,20 @@ This example illustrates how to use the `service-accounts` module.
 
 [^]: (autogen_docs_start)
 
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| project\_id | The ID of the project in which to provision resources. | string | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| emails | The service account emails. |
+| iam\_emails | The service account IAM-format emails. |
+| keys | The service account keys. |
+
 [^]: (autogen_docs_end)
 
 To provision this example, run the following from within this directory:

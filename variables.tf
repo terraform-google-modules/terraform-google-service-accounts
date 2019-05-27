@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,9 +15,45 @@
  */
 
 variable "project_id" {
-  description = "The project ID to deploy to"
+  description = "Project id where service account will be created."
 }
 
-variable "bucket_name" {
-  description = "The name of the bucket to create"
+variable "prefix" {
+  description = "Prefix applied to service account names."
+  default     = ""
+}
+
+variable "names" {
+  description = "Names of the service accounts to create."
+  default     = []
+}
+
+variable "project_roles" {
+  description = "Common roles to apply to all service accounts, project=>role as elements."
+  default     = []
+}
+
+variable "grant_billing_role" {
+  description = "Grant billing user role."
+  default     = false
+}
+
+variable "billing_account_id" {
+  description = "If assigning billing role, specificy a billing account (default is to assign at the organizational level)."
+  default     = ""
+}
+
+variable "grant_xpn_roles" {
+  description = "Grant roles for shared VPC management."
+  default     = true
+}
+
+variable "org_id" {
+  description = "Id of the organization for org-level roles."
+  default     = ""
+}
+
+variable "generate_keys" {
+  description = "Generate keys for service accounts."
+  default     = false
 }
