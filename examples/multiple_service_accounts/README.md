@@ -1,6 +1,6 @@
-# Simple Example
+# Multiple Service Accounts
 
-This example illustrates how to use the `service-accounts` module.
+This example illustrates how to use the `service-accounts` module to generate multiple service accounts.
 
 [^]: (autogen_docs_start)
 
