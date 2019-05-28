@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,19 +14,17 @@
  * limitations under the License.
  */
 
-provider "random" {
-  version = "~> 2.0"
+output "emails" {
+  description = "The service account emails."
+  value       = "${values(module.service_accounts.emails)}"
 }
 
-resource "random_pet" "main" {
-  length    = 1
-  prefix    = "simple-example"
-  separator = "-"
+output "iam_emails" {
+  description = "The service account IAM-format emails."
+  value       = "${values(module.service_accounts.iam_emails)}"
 }
 
-module "example" {
-  source = "../../../examples/simple_example"
-
-  project_id  = "${var.project_id}"
-  bucket_name = "${random_pet.main.id}"
+output "keys" {
+  description = "The service account keys."
+  value       = "${module.service_accounts.keys}"
 }

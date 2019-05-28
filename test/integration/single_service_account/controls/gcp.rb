@@ -12,12 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-control "gsutil" do
-  title "gsutil"
+control "gcp" do
+  title "GCP Resources"
 
-  describe command("gsutil ls -p #{attribute("project_id")}") do
-    its(:exit_status) { should eq 0 }
-    its(:stderr) { should eq "" }
-    its(:stdout) { should match "gs://#{attribute("bucket_name")}" }
+  describe google_service_account(name: "projects/#{attribute("project_id")}/serviceAccounts/#{attribute("email")}") do
+    its('project_id') { should eq attribute('project_id') }
   end
+
+  describe google_project_iam_binding(project: "#{attribute("project_id")}",  role: 'roles/viewer') do
+    its('members') {should include attribute('iam_email') }
+  end
+
 end

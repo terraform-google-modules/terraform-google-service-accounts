@@ -15,7 +15,16 @@
 control "gcp" do
   title "GCP Resources"
 
-  describe google_storage_bucket(name: attribute("bucket_name")) do
-    it { should exist }
+  attribute('emails').each do |email|
+    describe google_service_accounts(project: "#{attribute('project_id')}") do
+      its('service_account_emails'){ should include email }
+    end
+    describe google_project_iam_binding(project: "#{attribute("project_id")}",  role: 'roles/viewer') do
+      its('members') {should include "serviceAccount:#{email}" }
+    end
+    describe google_project_iam_binding(project: "#{attribute("project_id")}",  role: 'roles/storage.objectViewer') do
+      its('members') {should include "serviceAccount:#{email}" }
+    end
   end
+
 end

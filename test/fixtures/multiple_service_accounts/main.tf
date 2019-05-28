@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-output "bucket_name" {
-  description = "The name of the bucket."
-  value       = "${module.service_accounts.bucket_name}"
+module "example" {
+  source     = "../../../examples/multiple_service_accounts"
+  project_id = "${var.project_id}"
 }

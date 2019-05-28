@@ -1,0 +1,15 @@
+name: single_service_account
+depends:
+  - name: inspec-gcp
+    git: https://github.com/inspec/inspec-gcp.git
+    tag: v0.10.0
+attributes:
+  - name: project_id
+    required: true
+    type: string
+  - name: email
+    required: true
+    type: string
+  - name: iam_email
+    required: true
+    type: string

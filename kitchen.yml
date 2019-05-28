@@ -26,18 +26,23 @@ platforms:
   - name: default
 
 suites:
-  - name: simple_example
+  - name: single_service_account
     driver:
-      root_module_directory: test/fixtures/simple_example/
+      root_module_directory: test/fixtures/single_service_account/
     verifier:
       color: false
       systems:
-        - name: simple_example local
-          backend: local
+        - name: single_service_account gcp
+          backend: gcp
           controls:
-            - gcloud
-            - gsutil
-        - name: simple_example gcp
+            - gcp
+  - name: multiple_service_accounts
+    driver:
+      root_module_directory: test/fixtures/multiple_service_accounts/
+    verifier:
+      color: false
+      systems:
+        - name: multiple_service_accounts gcp
           backend: gcp
           controls:
             - gcp
