@@ -16,7 +16,7 @@ control "gcp" do
   title "GCP Resources"
 
   attribute('emails').each do |email|
-    describe google_service_accounts(project: 'ludo-tf-playground') do
+    describe google_service_accounts(project: "#{attribute('project_id')}") do
       its('service_account_emails'){ should include email }
     end
     describe google_project_iam_binding(project: "#{attribute("project_id")}",  role: 'roles/viewer') do
