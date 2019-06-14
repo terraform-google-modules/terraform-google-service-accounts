@@ -34,11 +34,11 @@ resource "google_project_iam_member" "project-roles" {
   count = "${length(var.project_roles) * length(var.names)}"
 
   project = "${element(
-    split("=>", element(var.project_roles, count.index % length(var.names))
+    split("=>", element(var.project_roles, count.index % length(var.project_roles))
   ), 0)}"
 
   role = "${element(
-    split("=>", element(var.project_roles, count.index % length(var.names))
+    split("=>", element(var.project_roles, count.index % length(var.project_roles))
   ), 1)}"
 
   member = "serviceAccount:${element(
