@@ -9,12 +9,20 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [0.1.1] - 2019-06-14
+
+### Fixed
+
+- All bindings are applied to all service accounts. [#3]
+
 ## [0.1.0] - 2019-05-28
 
 ### Added
 
 - Initial release. [#1]
 
-[Unreleased]: https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/terraform-google-modules/terraform-google-service-accounts/releases/tag/v0.1.0
+[#3]: https://github.com/terraform-google-modules/terraform-google-service-accounts/pull/3
 [#1]: https://github.com/terraform-google-modules/terraform-google-service-accounts/pull/1
