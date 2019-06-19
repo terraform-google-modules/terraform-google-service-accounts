@@ -29,17 +29,32 @@ variable "names" {
 }
 
 variable "project_roles" {
-  description = "Common roles to apply to all service accounts, project=>role as elements."
+  description = "Common roles to bind to all service accounts for the specified project, project_id=>role as elements."
+  default     = []
+}
+
+variable "org_roles" {
+  description = "Common organization roles to bind to all service accounts."
+  default     = []
+}
+
+variable "bucket_roles" {
+  description = "Common roles to bind to all service accounts for the specified GCS bucket, bucket_id=>role as elements."
+  default     = []
+}
+
+variable "billing_account_roles" {
+  description = "Common roles to bind to all service accounts for the specified billing accounts, billing_account_id=>role as elements."
   default     = []
 }
 
 variable "grant_billing_role" {
-  description = "Grant billing user role."
+  description = "Grant the billing user role"
   default     = false
 }
 
 variable "billing_account_id" {
-  description = "If assigning billing role, specificy a billing account (default is to assign at the organizational level)."
+  description = "If assigning billing role, specify a billing account (default is to assign at the organizational level)."
   default     = ""
 }
 

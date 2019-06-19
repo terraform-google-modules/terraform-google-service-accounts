@@ -15,10 +15,16 @@
  */
 
 locals {
-  account_billing = "${var.grant_billing_role && var.billing_account_id != ""}"
-  org_billing     = "${var.grant_billing_role && var.billing_account_id == "" && var.org_id != ""}"
-  prefix          = "${var.prefix != "" ? "${var.prefix}-" : ""}"
-  xpn             = "${var.grant_xpn_roles && var.org_id != ""}"
+  account_billing       = "${var.grant_billing_role && var.billing_account_id != ""}"
+  org_billing           = "${var.grant_billing_role && var.billing_account_id == "" && var.org_id != ""}"
+  billing_account_roles = "${local.account_billing ? "${var.billing_account_id}=>roles/billing.user" : ""}"
+  billing_org_role      = "${local.org_billing ? "${var.org_id}=>roles/billing.user" : ""}"
+  org_roles             = "${compact(distinct(concat(var.org_roles, list(local.billing_org_role), list(local.org_roles_xpn1), list(local.org_roles_xpn2))))}"
+  account_roles_billing = "${compact(distinct(concat(var.org_roles, list(local.billing_org_role))))}"
+  org_roles_xpn1        = "${local.xpn ? "${var.org_id}=>roles/compute.xpnAdmin" : ""}"
+  org_roles_xpn2        = "${local.xpn ? "${var.org_id}=>roles/resourcemanager.organizationViewer" : ""}"
+  prefix                = "${var.prefix != "" ? "${var.prefix}-" : ""}"
+  xpn                   = "${var.grant_xpn_roles && var.org_id != ""}"
 }
 
 # create service accounts
@@ -47,38 +53,60 @@ resource "google_project_iam_member" "project-roles" {
   )}"
 }
 
-# conditionally assign billing user role at the org level
-resource "google_organization_iam_member" "billing_user" {
-  count  = "${local.org_billing ? length(var.names) : 0}"
-  org_id = "${var.org_id}"
-  role   = "roles/billing.user"
-  member = "serviceAccount:${element(google_service_account.service_accounts.*.email, count.index)}"
+# Bucket roles
+resource "google_storage_bucket_iam_member" "bucket_roles" {
+  count = "${length(var.bucket_roles) * length(var.names)}"
+
+  bucket = "${element(
+    split("=>", element(var.bucket_roles, count.index % length(var.bucket_roles))
+  ), 0)}"
+
+  role = "${element(
+    split("=>", element(var.bucket_roles, count.index % length(var.bucket_roles))
+  ), 1)}"
+
+  member = "serviceAccount:${element(
+    google_service_account.service_accounts.*.email,
+    count.index / length(var.bucket_roles)
+  )}"
 }
 
-# conditionally assign billing user role on a specific billing account
-resource "google_billing_account_iam_member" "billing_user" {
-  count              = "${local.account_billing ? length(var.names) : 0}"
-  billing_account_id = "${var.billing_account_id}"
-  role               = "roles/billing.user"
-  member             = "serviceAccount:${element(google_service_account.service_accounts.*.email, count.index)}"
+resource "google_organization_iam_member" "org_roles" {
+  count = "${length(local.org_roles) * length(var.names)}"
+
+  org_id = "${element(
+    split("=>", element(local.org_roles, count.index % length(local.org_roles))
+  ), 0)}"
+
+  role = "${element(
+    split("=>", element(local.org_roles, count.index % length(local.org_roles))
+  ), 1)}"
+
+  member = "serviceAccount:${element(
+    google_service_account.service_accounts.*.email,
+    count.index / length(local.org_roles)
+  )}"
+}
+
+resource "google_billing_account_iam_member" "billing_account_roles" {
+  count = "${length(local.billing_account_roles) * length(var.names)}"
+
+  billing_account_id = "${element(
+    split("=>", element(local.billing_account_roles, count.index % length(local.billing_account_roles))
+  ), 0)}"
+
+  role = "${element(
+    split("=>", element(local.billing_account_roles, count.index % length(local.billing_account_roles))
+  ), 1)}"
+
+  member = "serviceAccount:${element(
+    google_service_account.service_accounts.*.email,
+    count.index / length(local.billing_account_roles)
+  )}"
 }
 
 # conditionally assign roles for shared VPC
 # ref: https://cloud.google.com/vpc/docs/shared-vpc
-
-resource "google_organization_iam_member" "xpn_admin" {
-  count  = "${local.xpn ? length(var.names) : 0}"
-  org_id = "${var.org_id}"
-  role   = "roles/compute.xpnAdmin"
-  member = "serviceAccount:${element(google_service_account.service_accounts.*.email, count.index)}"
-}
-
-resource "google_organization_iam_member" "organization_viewer" {
-  count  = "${local.xpn ? length(var.names) : 0}"
-  org_id = "${var.org_id}"
-  role   = "roles/resourcemanager.organizationViewer"
-  member = "serviceAccount:${element(google_service_account.service_accounts.*.email, count.index)}"
-}
 
 # keys
 resource "google_service_account_key" "keys" {
