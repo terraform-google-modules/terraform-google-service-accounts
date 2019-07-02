@@ -16,42 +16,50 @@
 
 output "email" {
   description = "Service account email (single-use case)."
-  value       = "${element(google_service_account.service_accounts.*.email, 0)}"
+  value       = google_service_account.service_accounts[0].email
 }
 
 output "iam_email" {
   description = "IAM-format service account email (single-use case)."
-  value       = "serviceAccount:${element(google_service_account.service_accounts.*.email, 0)}"
+  value       = "serviceAccount:${google_service_account.service_accounts[0].email}"
 }
 
 output "emails" {
   description = "Map of service account emails."
-  value       = "${zipmap(var.names, google_service_account.service_accounts.*.email)}"
+  value       = zipmap(var.names, google_service_account.service_accounts.*.email)
 }
 
 output "iam_emails" {
   description = "IAM-format service account emails."
-  value       = "${zipmap(var.names, formatlist("serviceAccount:%s", google_service_account.service_accounts.*.email))}"
+  value = zipmap(
+    var.names,
+    formatlist(
+      "serviceAccount:%s",
+      google_service_account.service_accounts.*.email,
+    ),
+  )
 }
 
 data "template_file" "keys" {
-  count    = "${length(var.names)}"
+  count    = length(var.names)
   template = "$${key}"
 
-  vars {
-    key = "${
-      var.generate_keys
-      ? base64decode(element(
-        concat(google_service_account_key.keys.*.private_key, list("")),
-        count.index
-      ))
-      : ""
-    }"
+  vars = {
+    key = var.generate_keys ? base64decode(
+      element(
+        concat(google_service_account_key.keys.*.private_key, [""]),
+        count.index,
+      ),
+    ) : ""
   }
 }
 
 output "keys" {
   description = "Map of service account keys."
   sensitive   = true
-  value       = "${zipmap(formatlist("%s-key.json", var.names), data.template_file.keys.*.rendered)}"
+  value = zipmap(
+    formatlist("%s-key.json", var.names),
+    data.template_file.keys.*.rendered,
+  )
 }
+

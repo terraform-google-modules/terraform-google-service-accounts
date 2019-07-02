@@ -16,10 +16,11 @@
 
 output "emails" {
   description = "The service account emails."
-  value       = "${module.example.emails}"
+  value       = module.example.emails
 }
 
 output "project_id" {
   description = "Project id variable."
-  value       = "${var.project_id}"
+  value       = var.project_id
 }
+
