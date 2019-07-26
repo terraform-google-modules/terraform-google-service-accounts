@@ -20,7 +20,7 @@ provider "google" {
 
 module "service_accounts" {
   source        = "../.."
-  project_id    = "${var.project_id}"
+  project_id    = var.project_id
   prefix        = ""
   names         = ["test-first", "test-second"]
   generate_keys = true
@@ -30,3 +30,4 @@ module "service_accounts" {
     "${var.project_id}=>roles/storage.objectViewer",
   ]
 }
+

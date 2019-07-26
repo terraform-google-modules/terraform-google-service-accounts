@@ -16,5 +16,6 @@
 
 module "example" {
   source     = "../../../examples/single_service_account"
-  project_id = "${var.project_id}"
+  project_id = var.project_id
 }
+

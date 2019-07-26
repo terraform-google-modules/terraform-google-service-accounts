@@ -16,15 +16,16 @@
 
 output "email" {
   description = "The service account email."
-  value       = "${module.example.email}"
+  value       = module.example.email
 }
 
 output "iam_email" {
   description = "The service account IAM-format email."
-  value       = "${module.example.iam_email}"
+  value       = module.example.iam_email
 }
 
 output "project_id" {
   description = "Project id variable."
-  value       = "${var.project_id}"
+  value       = var.project_id
 }
+
