@@ -8,6 +8,9 @@ and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.0.0] - 2019-07-26
+
 ### CHANGED
 
 - Upgraded for usage with terraform-0.12.x [#6]
@@ -25,7 +28,8 @@ and this project adheres to
 
 - Initial release. [#1]
 
-[Unreleased]: https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v0.1.1...v1.0.0
 [0.1.1]: https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/terraform-google-modules/terraform-google-service-accounts/releases/tag/v0.1.0
 [#3]: https://github.com/terraform-google-modules/terraform-google-service-accounts/pull/3
