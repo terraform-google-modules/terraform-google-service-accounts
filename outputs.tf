@@ -25,18 +25,15 @@ output "iam_email" {
 }
 
 output "emails" {
-  description = "Map of service account emails."
-  value       = zipmap(var.names, google_service_account.service_accounts.*.email)
+  description = "List of service account emails."
+  value       = google_service_account.service_accounts.*.email
 }
 
 output "iam_emails" {
-  description = "IAM-format service account emails."
-  value = zipmap(
-    var.names,
-    formatlist(
-      "serviceAccount:%s",
-      google_service_account.service_accounts.*.email,
-    ),
+  description = "List of IAM-format service account emails."
+  value = formatlist(
+    "serviceAccount:%s",
+    google_service_account.service_accounts.*.email,
   )
 }
 
