@@ -14,27 +14,29 @@
  * limitations under the License.
  */
 
-output "email" {
-  description = "Service account email (single-use case)."
-  value       = google_service_account.service_accounts[0].email
+output "service_account" {
+  description = "Service account resource (for single use)."
+  value       = google_service_account.service_accounts[0]
 }
 
 output "iam_email" {
-  description = "IAM-format service account email (single-use case)."
+  description = "IAM-format service account email (for single use)."
   value       = "serviceAccount:${google_service_account.service_accounts[0].email}"
 }
 
-output "emails" {
-  description = "List of service account emails."
-  value       = google_service_account.service_accounts.*.email
+output "key" {
+  description = "Service account key (for single use)."
+  value       = data.template_file.keys[0].rendered
+}
+
+output "service_accounts" {
+  description = "Service account resources."
+  value       = google_service_account.service_accounts
 }
 
 output "iam_emails" {
-  description = "List of IAM-format service account emails."
-  value = formatlist(
-    "serviceAccount:%s",
-    google_service_account.service_accounts.*.email,
-  )
+  description = "IAM-format service account emails."
+  value       = [for s in google_service_account.service_accounts : "serviceAccount:${s.email}"]
 }
 
 data "template_file" "keys" {
@@ -42,21 +44,13 @@ data "template_file" "keys" {
   template = "$${key}"
 
   vars = {
-    key = var.generate_keys ? base64decode(
-      element(
-        concat(google_service_account_key.keys.*.private_key, [""]),
-        count.index,
-      ),
-    ) : ""
+    key = var.generate_keys ? base64decode(google_service_account_key.keys[count.index].private_key) : ""
   }
 }
 
 output "keys" {
   description = "Map of service account keys."
   sensitive   = true
-  value = zipmap(
-    formatlist("%s-key.json", var.names),
-    data.template_file.keys.*.rendered,
-  )
+  value       = zipmap(var.names, data.template_file.keys[*].rendered)
 }
 
