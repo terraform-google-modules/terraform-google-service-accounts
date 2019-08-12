@@ -19,6 +19,11 @@ output "service_account" {
   value       = google_service_account.service_accounts[0]
 }
 
+output "email" {
+  description = "Service account email (for single use)."
+  value       = google_service_account.service_accounts[0].email
+}
+
 output "iam_email" {
   description = "IAM-format service account email (for single use)."
   value       = "serviceAccount:${google_service_account.service_accounts[0].email}"
@@ -32,6 +37,11 @@ output "key" {
 output "service_accounts" {
   description = "Service account resources."
   value       = google_service_account.service_accounts
+}
+
+output "emails" {
+  description = "Service account emails."
+  value       = google_service_account.service_accounts[*].email
 }
 
 output "iam_emails" {

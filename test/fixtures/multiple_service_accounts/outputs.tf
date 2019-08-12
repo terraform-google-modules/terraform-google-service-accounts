@@ -19,6 +19,16 @@ output "emails" {
   value       = module.example.emails
 }
 
+output "iam_emails" {
+  description = "The service account IAM-format emails."
+  value       = module.example.iam_emails
+}
+
+output "keys" {
+  description = "The service account keys."
+  value       = module.example.keys
+}
+
 output "project_id" {
   description = "Project id variable."
   value       = var.project_id

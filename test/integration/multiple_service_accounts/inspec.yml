@@ -10,3 +10,6 @@ attributes:
   - name: emails
     required: true
     type: array
+  - name: iam_emails
+    required: true
+    type: array

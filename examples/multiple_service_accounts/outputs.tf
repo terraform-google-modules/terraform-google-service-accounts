@@ -16,12 +16,12 @@
 
 output "emails" {
   description = "The service account emails."
-  value       = values(module.service_accounts.emails)
+  value       = module.service_accounts.emails
 }
 
 output "iam_emails" {
   description = "The service account IAM-format emails."
-  value       = values(module.service_accounts.iam_emails)
+  value       = module.service_accounts.iam_emails
 }
 
 output "keys" {
