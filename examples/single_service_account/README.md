@@ -2,12 +2,12 @@
 
 This example illustrates how to use the `service-accounts` module to generate a single service account.
 
-[^]: (autogen_docs_start)
-
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
+| prefix | Prefix applied to service account names. | string | `""` | no |
 | project\_id | The ID of the project in which to provision resources. | string | n/a | yes |
 
 ## Outputs
@@ -17,7 +17,7 @@ This example illustrates how to use the `service-accounts` module to generate a 
 | email | The service account email. |
 | iam\_email | The service account IAM-format email. |
 
-[^]: (autogen_docs_end)
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 To provision this example, run the following from within this directory:
 - `terraform init` to get the plugins
