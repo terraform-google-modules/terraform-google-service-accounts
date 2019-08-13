@@ -9,6 +9,11 @@ and this project adheres to
 
 ## [Unreleased]
 
+- **Backwards-incompatible change:** outputs for multiple resource now return lists instead of maps, so that the same order of the input variable is kept.
+- Added new outputs to expose the base resources.
+- Refactored the `iam_emails` output to use the new `for` expression, fixing   issues with `formatlist` and `zipmap` in Terraform 0.12.
+- Refactored and simplified the `keys` template and output using the new splat syntax.
+
 ## [1.0.0] - 2019-07-26
 
 ### CHANGED
