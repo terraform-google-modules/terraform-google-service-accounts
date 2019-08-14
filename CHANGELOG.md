@@ -9,9 +9,9 @@ and this project adheres to
 
 ## [Unreleased]
 
-- **Backwards-incompatible change:** outputs for multiple resource now return lists instead of maps, so that the same order of the input variable is kept.
-- Added new outputs to expose the base resources.
-- Refactored the `iam_emails` output to use the new `for` expression, fixing   issues with `formatlist` and `zipmap` in Terraform 0.12.
+- Added new `service_account` and `service_accounts` outputs for single and multi user use that expose the base resources, now possible with Terraform 0.12.
+- Added new `emails_list` and `iam_emails_list` outputs that return lists, and are guaranteed to keep the same ordering for resources as the map type outputs.
+- Refactored the formatted list generation for the `iam_emails` and new `iam_emails_list` outputs to use the new `for` expression, fixing   issues with `formatlist` and `zipmap` in Terraform 0.12.
 - Refactored and simplified the `keys` template and output using the new splat syntax.
 
 ## [1.0.0] - 2019-07-26
