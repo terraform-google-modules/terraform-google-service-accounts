@@ -38,7 +38,6 @@ Functional examples are included in the
 [examples](./examples/) directory.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -59,8 +58,10 @@ Functional examples are included in the
 |------|-------------|
 | email | Service account email (for single use). |
 | emails | Service account emails. |
+| emails\_list | Service account emails. |
 | iam\_email | IAM-format service account email (for single use). |
 | iam\_emails | IAM-format service account emails. |
+| iam\_emails\_list | IAM-format service account emails. |
 | key | Service account key (for single use). |
 | keys | Map of service account keys. |
 | service\_account | Service account resource (for single use). |
