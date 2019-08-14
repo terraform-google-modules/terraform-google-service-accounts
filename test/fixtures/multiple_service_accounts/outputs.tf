@@ -19,8 +19,13 @@ output "emails" {
   value       = module.example.emails
 }
 
+output "emails_list" {
+  description = "The service account emails as a list."
+  value       = module.example.emails_list
+}
+
 output "iam_emails" {
-  description = "The service account IAM-format emails."
+  description = "The service account IAM-format emails as a map."
   value       = module.example.iam_emails
 }
 
