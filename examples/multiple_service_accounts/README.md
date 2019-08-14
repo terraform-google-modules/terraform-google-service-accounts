@@ -14,7 +14,8 @@ This example illustrates how to use the `service-accounts` module to generate mu
 | Name | Description |
 |------|-------------|
 | emails | The service account emails. |
-| iam\_emails | The service account IAM-format emails. |
+| emails\_list | The service account emails as a list. |
+| iam\_emails | The service account IAM-format emails as a map. |
 | keys | The service account keys. |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
