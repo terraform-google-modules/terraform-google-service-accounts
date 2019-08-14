@@ -15,15 +15,18 @@
 control "gcp" do
   title "GCP Resources"
 
-  attribute('emails').each do |email|
-    describe google_service_accounts(project: "#{attribute('project_id')}") do
-      its('service_account_emails'){ should include email }
-    end
+  attribute('iam_emails').each_value do |email|
     describe google_project_iam_binding(project: "#{attribute("project_id")}",  role: 'roles/viewer') do
-      its('members') {should include "serviceAccount:#{email}" }
+      its('members') {should include email }
     end
     describe google_project_iam_binding(project: "#{attribute("project_id")}",  role: 'roles/storage.objectViewer') do
-      its('members') {should include "serviceAccount:#{email}" }
+      its('members') {should include email }
+    end
+  end
+
+  attribute('emails_list').each do |email|
+    describe google_service_accounts(project: "#{attribute('project_id')}") do
+      its('service_account_emails'){ should include email }
     end
   end
 

@@ -9,4 +9,10 @@ attributes:
     type: string
   - name: emails
     required: true
+    type: hash
+  - name: emails_list
+    required: true
     type: array
+  - name: iam_emails
+    required: true
+    type: hash

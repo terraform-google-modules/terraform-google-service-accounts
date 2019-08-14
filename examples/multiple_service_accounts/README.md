@@ -2,8 +2,7 @@
 
 This example illustrates how to use the `service-accounts` module to generate multiple service accounts.
 
-[^]: (autogen_docs_start)
-
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -18,7 +17,7 @@ This example illustrates how to use the `service-accounts` module to generate mu
 | iam\_emails | The service account IAM-format emails. |
 | keys | The service account keys. |
 
-[^]: (autogen_docs_end)
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 To provision this example, run the following from within this directory:
 - `terraform init` to get the plugins
