@@ -9,6 +9,12 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [2.0.1] - 2019-09-13
+
+### Changed
+
+- Fix example in top-level README to work with terraform-0.12.x [#13]
+
 ## [2.0.0] - 2019-08-14
 
 ### Changed
