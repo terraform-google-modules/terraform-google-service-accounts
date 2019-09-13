@@ -22,11 +22,11 @@ Basic usage of this module is as follows:
 
 ```hcl
 module "service_accounts" {
-  source  = "terraform-google-modules/service-accounts/google"
-  version = "~> 0.1"
-  project_id  = "<PROJECT ID>"
-  prefix        = ""
-  names         = ["test-first", "test-second"]
+  source        = "terraform-google-modules/service-accounts/google"
+  version       = "~> 2.0"
+  project_id    = "<PROJECT ID>"
+  prefix        = "test-sa"
+  names         = ["first", "second"]
   project_roles = [
     "project-foo=>roles/viewer",
     "project-spam=>roles/storage.objectViewer",
