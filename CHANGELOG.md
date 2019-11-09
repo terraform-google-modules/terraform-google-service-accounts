@@ -9,6 +9,12 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [2.0.2] - 2019-10-09
+
+### Fixed
+
+- Fix outputs on `names` variable element removal/change [#14]
+
 ## [2.0.1] - 2019-09-13
 
 ### Changed
@@ -44,12 +50,16 @@ and this project adheres to
 
 - Initial release. [#1]
 
-[Unreleased]: https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v2.0.2...HEAD
+[2.0.2]: https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v2.0.1...v2.0.2
+[2.0.1]: https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v0.1.1...v1.0.0
 [0.1.1]: https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/terraform-google-modules/terraform-google-service-accounts/releases/tag/v0.1.0
 
+[#14]: https://github.com/terraform-google-modules/terraform-google-service-accounts/pull/14
+[#13]: https://github.com/terraform-google-modules/terraform-google-service-accounts/pull/13
 [#9]: https://github.com/terraform-google-modules/terraform-google-service-accounts/pull/9
 [#3]: https://github.com/terraform-google-modules/terraform-google-service-accounts/pull/3
 [#1]: https://github.com/terraform-google-modules/terraform-google-service-accounts/pull/1
