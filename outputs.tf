@@ -41,16 +41,12 @@ output "service_accounts" {
 
 output "emails" {
   description = "Service account emails."
-  value = zipmap(var.names, [
-    for i in range(length(var.names)) : i > length(local.emails) - 1 ? "" : local.emails[i]
-  ])
+  value       = zipmap(var.names, slice(local.emails, 0, length(var.names)))
 }
 
 output "iam_emails" {
   description = "IAM-format service account emails."
-  value = zipmap(var.names, [
-    for i in range(length(var.names)) : i > length(local.iam_emails) - 1 ? "" : local.iam_emails[i]
-  ])
+  value       = zipmap(var.names, slice(local.iam_emails, 0, length(var.names)))
 }
 
 output "emails_list" {
@@ -75,7 +71,8 @@ data "template_file" "keys" {
 output "keys" {
   description = "Map of service account keys."
   sensitive   = true
-  value = zipmap(var.names, [
-    for i in range(length(var.names)) : i > length(data.template_file.keys) ? "" : data.template_file.keys[i].rendered
-  ])
+  value = zipmap(
+    var.names,
+    slice(data.template_file.keys[*].rendered, 0, length(var.names))
+  )
 }
