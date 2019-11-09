@@ -76,6 +76,6 @@ output "keys" {
   description = "Map of service account keys."
   sensitive   = true
   value = zipmap(var.names, [
-    for i in range(length(var.names)) : i > length(data.template_file.keys) ? "" : data.template_file.keys[*].rendered
+    for i in range(length(var.names)) : i > length(data.template_file.keys) ? "" : data.template_file.keys[i].rendered
   ])
 }
