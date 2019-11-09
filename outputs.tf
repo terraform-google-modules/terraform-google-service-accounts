@@ -41,22 +41,26 @@ output "service_accounts" {
 
 output "emails" {
   description = "Service account emails."
-  value       = zipmap(var.names, google_service_account.service_accounts[*].email)
+  value = zipmap(var.names, [
+    for i in range(length(var.names)) : i > length(local.emails) - 1 ? "" : local.emails[i]
+  ])
 }
 
 output "iam_emails" {
   description = "IAM-format service account emails."
-  value       = zipmap(var.names, local.iam_emails)
+  value = zipmap(var.names, [
+    for i in range(length(var.names)) : i > length(local.iam_emails) - 1 ? "" : local.iam_emails[i]
+  ])
 }
 
 output "emails_list" {
   description = "Service account emails."
-  value       = google_service_account.service_accounts[*].email
+  value       = local.emails
 }
 
 output "iam_emails_list" {
   description = "IAM-format service account emails."
-  value       = [for s in google_service_account.service_accounts : "serviceAccount:${s.email}"]
+  value       = local.iam_emails
 }
 
 data "template_file" "keys" {
@@ -71,5 +75,7 @@ data "template_file" "keys" {
 output "keys" {
   description = "Map of service account keys."
   sensitive   = true
-  value       = zipmap(var.names, data.template_file.keys[*].rendered)
+  value = zipmap(var.names, [
+    for i in range(length(var.names)) : i > length(data.template_file.keys) ? "" : data.template_file.keys[*].rendered
+  ])
 }

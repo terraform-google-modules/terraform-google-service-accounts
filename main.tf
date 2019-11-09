@@ -19,7 +19,8 @@ locals {
   org_billing     = var.grant_billing_role && var.billing_account_id == "" && var.org_id != ""
   prefix          = var.prefix != "" ? "${var.prefix}-" : ""
   xpn             = var.grant_xpn_roles && var.org_id != ""
-  iam_emails      = [for s in google_service_account.service_accounts : "serviceAccount:${s.email}"]
+  emails          = [for account in google_service_account.service_accounts : account.email]
+  iam_emails      = [for email in local.emails : "serviceAccount:${email}"]
 }
 
 # create service accounts
