@@ -15,30 +15,41 @@
  */
 
 locals {
-  account_billing = var.grant_billing_role && var.billing_account_id != ""
-  org_billing     = var.grant_billing_role && var.billing_account_id == "" && var.org_id != ""
-  prefix          = var.prefix != "" ? "${var.prefix}-" : ""
-  xpn             = var.grant_xpn_roles && var.org_id != ""
-  emails          = [for account in google_service_account.service_accounts : account.email]
-  iam_emails      = [for email in local.emails : "serviceAccount:${email}"]
+  account_billing        = var.grant_billing_role && var.billing_account_id != ""
+  org_billing            = var.grant_billing_role && var.billing_account_id == "" && var.org_id != ""
+  prefix                 = var.prefix != "" ? "${var.prefix}-" : ""
+  xpn                    = var.grant_xpn_roles && var.org_id != ""
+  service_accounts_list  = [ for name in var.names: google_service_account.service_accounts[name] ]
+  emails_list            = [ for account in local.service_accounts_list : account.email ]
+  iam_emails_list        = [ for email in local.emails_list : "serviceAccount:${email}" ]
+  names                  = toset(var.names)
+  name_role_pairs        = setproduct(local.names, toset(var.project_roles))
+  project_roles_map_data = zipmap(
+    [ for pair in local.name_role_pairs : "${pair[0]}-${pair[1]}" ],
+    [ for pair in local.name_role_pairs : {
+        name = pair[0]
+        role = pair[1]
+      }
+    ]
+  )
 }
 
 # create service accounts
 resource "google_service_account" "service_accounts" {
-  count        = length(var.names)
-  account_id   = "${local.prefix}${lower(element(var.names, count.index))}"
+  for_each     = local.names
+  account_id   = "${local.prefix}${lower(each.value)}"
   display_name = "Terraform-managed service account"
   project      = var.project_id
 }
 
 # common roles
 resource "google_project_iam_member" "project-roles" {
-  count = length(var.project_roles) * length(var.names)
+  for_each = local.project_roles_map_data
 
   project = element(
     split(
       "=>",
-      element(var.project_roles, count.index % length(var.project_roles)),
+      each.value.role
     ),
     0,
   )
@@ -46,53 +57,49 @@ resource "google_project_iam_member" "project-roles" {
   role = element(
     split(
       "=>",
-      element(var.project_roles, count.index % length(var.project_roles)),
+      each.value.role
     ),
     1,
   )
 
-  member = "serviceAccount:${element(
-    google_service_account.service_accounts.*.email,
-    floor(count.index / length(var.project_roles)),
-  )}"
+  member = "serviceAccount:${google_service_account.service_accounts[each.value.name].email}"
 }
 
 # conditionally assign billing user role at the org level
 resource "google_organization_iam_member" "billing_user" {
-  count  = local.org_billing ? length(var.names) : 0
-  org_id = var.org_id
-  role   = "roles/billing.user"
-  member = "serviceAccount:${google_service_account.service_accounts[count.index].email}"
+  for_each = local.org_billing ? local.names : []
+  org_id   = var.org_id
+  role     = "roles/billing.user"
+  member   = "serviceAccount:${google_service_account.service_accounts[each.value].email}"
 }
 
 # conditionally assign billing user role on a specific billing account
 resource "google_billing_account_iam_member" "billing_user" {
-  count              = local.account_billing ? length(var.names) : 0
+  for_each           = local.account_billing ? local.names : []
   billing_account_id = var.billing_account_id
   role               = "roles/billing.user"
-  member             = "serviceAccount:${google_service_account.service_accounts[count.index].email}"
+  member             = "serviceAccount:${google_service_account.service_accounts[each.value].email}"
 }
 
 # conditionally assign roles for shared VPC
 # ref: https://cloud.google.com/vpc/docs/shared-vpc
 
 resource "google_organization_iam_member" "xpn_admin" {
-  count  = local.xpn ? length(var.names) : 0
-  org_id = var.org_id
-  role   = "roles/compute.xpnAdmin"
-  member = "serviceAccount:${google_service_account.service_accounts[count.index].email}"
+  for_each = local.xpn ? local.names : []
+  org_id   = var.org_id
+  role     = "roles/compute.xpnAdmin"
+  member   = "serviceAccount:${google_service_account.service_accounts[each.value].email}"
 }
 
 resource "google_organization_iam_member" "organization_viewer" {
-  count  = local.xpn ? length(var.names) : 0
-  org_id = var.org_id
-  role   = "roles/resourcemanager.organizationViewer"
-  member = "serviceAccount:${google_service_account.service_accounts[count.index].email}"
+  for_each = local.xpn ? local.names : []
+  org_id   = var.org_id
+  role     = "roles/resourcemanager.organizationViewer"
+  member   = "serviceAccount:${google_service_account.service_accounts[each.value].email}"
 }
 
 # keys
 resource "google_service_account_key" "keys" {
-  count              = var.generate_keys ? length(var.names) : 0
-  service_account_id = google_service_account.service_accounts[count.index].email
+  for_each           = var.generate_keys ? local.names : []
+  service_account_id = google_service_account.service_accounts[each.value].email
 }
-
