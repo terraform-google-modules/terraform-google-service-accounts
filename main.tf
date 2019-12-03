@@ -66,7 +66,7 @@ resource "google_project_iam_member" "project-roles" {
 
 # conditionally assign billing user role at the org level
 resource "google_organization_iam_member" "billing_user" {
-  for_each = local.org_billing ? local.names : []
+  for_each = local.org_billing ? local.names : toset([])
   org_id   = var.org_id
   role     = "roles/billing.user"
   member   = "serviceAccount:${google_service_account.service_accounts[each.value].email}"
@@ -74,7 +74,7 @@ resource "google_organization_iam_member" "billing_user" {
 
 # conditionally assign billing user role on a specific billing account
 resource "google_billing_account_iam_member" "billing_user" {
-  for_each           = local.account_billing ? local.names : []
+  for_each           = local.account_billing ? local.names : toset([])
   billing_account_id = var.billing_account_id
   role               = "roles/billing.user"
   member             = "serviceAccount:${google_service_account.service_accounts[each.value].email}"
@@ -84,14 +84,14 @@ resource "google_billing_account_iam_member" "billing_user" {
 # ref: https://cloud.google.com/vpc/docs/shared-vpc
 
 resource "google_organization_iam_member" "xpn_admin" {
-  for_each = local.xpn ? local.names : []
+  for_each = local.xpn ? local.names : toset([])
   org_id   = var.org_id
   role     = "roles/compute.xpnAdmin"
   member   = "serviceAccount:${google_service_account.service_accounts[each.value].email}"
 }
 
 resource "google_organization_iam_member" "organization_viewer" {
-  for_each = local.xpn ? local.names : []
+  for_each = local.xpn ? local.names : toset([])
   org_id   = var.org_id
   role     = "roles/resourcemanager.organizationViewer"
   member   = "serviceAccount:${google_service_account.service_accounts[each.value].email}"
@@ -99,6 +99,6 @@ resource "google_organization_iam_member" "organization_viewer" {
 
 # keys
 resource "google_service_account_key" "keys" {
-  for_each           = var.generate_keys ? local.names : []
+  for_each           = var.generate_keys ? local.names : toset([])
   service_account_id = google_service_account.service_accounts[each.value].email
 }
