@@ -76,5 +76,5 @@ data "template_file" "keys" {
 output "keys" {
   description = "Map of service account keys."
   sensitive   = true
-  value = { for k, v in data.template_file.keys: k => v.rendered }
+  value       = { for k, v in data.template_file.keys : k => v.rendered }
 }
