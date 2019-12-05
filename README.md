@@ -57,15 +57,16 @@ Functional examples are included in the
 | Name | Description |
 |------|-------------|
 | email | Service account email (for single use). |
-| emails | Service account emails. |
-| emails\_list | Service account emails. |
+| emails | Service account emails by name. |
+| emails\_list | Service account emails as list. |
 | iam\_email | IAM-format service account email (for single use). |
-| iam\_emails | IAM-format service account emails. |
-| iam\_emails\_list | IAM-format service account emails. |
+| iam\_emails | IAM-format service account emails by name. |
+| iam\_emails\_list | IAM-format service account emails as list. |
 | key | Service account key (for single use). |
 | keys | Map of service account keys. |
 | service\_account | Service account resource (for single use). |
-| service\_accounts | Service account resources. |
+| service\_accounts | Service account resources as list. |
+| service\_accounts\_map | Service account resources by name. |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
