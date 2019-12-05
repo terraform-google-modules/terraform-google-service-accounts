@@ -85,7 +85,8 @@ The following dependencies must be available:
 Service account or user credentials with the following roles must be used to provision the resources of this module:
 
 - Service Account Admin: `roles/iam.serviceAccountAdmin`
-- roles needed to grant optional IAM roles at the project or organizational level
+- (optional) Service Account Key Admin: `roles/iam.serviceAccountAdmin` when `generate_keys` is set to `true`
+- (optional) roles needed to grant optional IAM roles at the project or organizational level
 
 ## Contributing
 
