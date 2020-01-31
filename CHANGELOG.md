@@ -9,6 +9,10 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Added
+
+- Use `for_each` instead of `count` [#15]
+
 ## [2.0.2] - 2019-10-09
 
 ### Fixed
@@ -58,6 +62,7 @@ and this project adheres to
 [0.1.1]: https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/terraform-google-modules/terraform-google-service-accounts/releases/tag/v0.1.0
 
+[#15]: https://github.com/terraform-google-modules/terraform-google-service-accounts/pull/15
 [#14]: https://github.com/terraform-google-modules/terraform-google-service-accounts/pull/14
 [#13]: https://github.com/terraform-google-modules/terraform-google-service-accounts/pull/13
 [#9]: https://github.com/terraform-google-modules/terraform-google-service-accounts/pull/9
