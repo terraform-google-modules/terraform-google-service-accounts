@@ -43,6 +43,8 @@ Functional examples are included in the
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | billing\_account\_id | If assigning billing role, specificy a billing account (default is to assign at the organizational level). | string | `""` | no |
+| description | Descriptions of the created service accounts (defaults to no description) | string | `""` | no |
+| display\_name | Display names of the created service accounts (defaults to 'Terraform-managed service account') | string | `"Terraform-managed service account"` | no |
 | generate\_keys | Generate keys for service accounts. | bool | `"false"` | no |
 | grant\_billing\_role | Grant billing user role. | bool | `"false"` | no |
 | grant\_xpn\_roles | Grant roles for shared VPC management. | bool | `"true"` | no |
