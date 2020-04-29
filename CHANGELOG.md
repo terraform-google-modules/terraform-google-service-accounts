@@ -11,6 +11,7 @@ and this project adheres to
 
 ### Added
 
+- Support for `display_name` and `description` [#18]
 - Use `for_each` instead of `count` [#15]
 
 ## [2.0.2] - 2019-10-09

@@ -37,7 +37,8 @@ locals {
 resource "google_service_account" "service_accounts" {
   for_each     = local.names
   account_id   = "${local.prefix}${lower(each.value)}"
-  display_name = "Terraform-managed service account"
+  display_name = var.display_name
+  description  = var.description
   project      = var.project_id
 }
 

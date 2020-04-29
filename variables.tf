@@ -67,3 +67,14 @@ variable "generate_keys" {
   default     = false
 }
 
+variable "display_name" {
+  type        = string
+  description = "Display names of the created service accounts (defaults to 'Terraform-managed service account')"
+  default     = "Terraform-managed service account"
+}
+
+variable "description" {
+  type        = string
+  description = "Descriptions of the created service accounts (defaults to no description)"
+  default     = ""
+}

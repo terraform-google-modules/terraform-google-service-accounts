@@ -15,7 +15,7 @@
  */
 
 provider "google" {
-  version = "~> 2.7.0"
+  version = "~> 3.17.0"
 }
 
 module "service_accounts" {
@@ -24,5 +24,7 @@ module "service_accounts" {
   prefix        = var.prefix
   names         = ["single-account"]
   project_roles = ["${var.project_id}=>roles/viewer"]
+  display_name  = "Single Account"
+  description   = "Single Account Description"
 }
 
