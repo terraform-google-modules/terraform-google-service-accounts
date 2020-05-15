@@ -125,7 +125,8 @@ class ModuleMigration:
 
     def targets(self):
         """
-        A list of resources that will be moved to the new module        """
+        A list of resources that will be moved to the new module.
+        """
         to_move = []
 
         for migration in MIGRATIONS:
