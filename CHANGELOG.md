@@ -12,7 +12,7 @@ and this project adheres to
 
 ### ⚠ BREAKING CHANGES
 
-* Service accounts were changed to use for_each, causing a state migration. See the [upgrade guide](./docs/upgrading_to_v2.0.md) for details.
+* Service accounts were changed to use for_each, causing a state migration. See the [upgrade guide](./docs/upgrading_to_v3.md) for details.
 
 ### Features
 
