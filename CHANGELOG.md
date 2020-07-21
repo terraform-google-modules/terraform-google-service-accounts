@@ -19,13 +19,6 @@ and this project adheres to
 * Add support for custom display_name and description [#18](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/issues/18) ([#19](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/issues/19)) ([badaaf3](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/commit/badaaf3639aef1e0256b69d8f017693c5737733f))
 * Use for_each instead of count to create resource ([#15](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/issues/15)) ([19c8a02](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/commit/19c8a02361af89aa7f3036c843f1cf9f39866d1e))
 
-## [Unreleased]
-
-### Added
-
-- Support for `display_name` and `description` [#18]
-- Use `for_each` instead of `count` [#15]
-
 ## [2.0.2] - 2019-10-09
 
 ### Fixed
