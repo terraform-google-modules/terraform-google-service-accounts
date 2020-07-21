@@ -14,6 +14,13 @@ and this project adheres to
 
 * Key should be the actual value of the generated json content ([#26](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/issues/26)) ([b6f3452](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/commit/b6f345279519ab8eac300c47af8d60b9e6a5a5e8))
 
+### [3.0.1](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/compare/v3.0.0...v3.0.1) (2020-07-21)
+
+
+### Bug Fixes
+
+* Key should be the actual value of the generated json content ([#26](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/issues/26)) ([b6f3452](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/commit/b6f345279519ab8eac300c47af8d60b9e6a5a5e8))
+
 ## [3.0.0](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/compare/v2.0.2...v3.0.0) (2020-05-15)
 
 
