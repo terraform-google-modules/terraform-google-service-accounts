@@ -31,7 +31,7 @@ output "iam_email" {
 
 output "key" {
   description = "Service account key (for single use)."
-  value       = data.template_file.keys[var.names[0]]
+  value       = data.template_file.keys[var.names[0]].rendered
 }
 
 output "service_accounts" {
