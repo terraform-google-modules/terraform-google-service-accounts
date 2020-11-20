@@ -11,16 +11,17 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+require "base64"
+require "json"
 
-control "gcp" do
+control "key_distributor" do
   title "GCP Resources"
-
-  describe google_service_account(project: attribute("project_id"), name: attribute("email")) do
-    its('project_id') { should eq attribute('project_id') }
-  end
-
-  describe google_project_iam_binding(project: "#{attribute("project_id")}",  role: 'roles/viewer') do
-    its('members') {should include attribute('iam_email') }
+  describe command("./test/fixtures/key_distributor/get-key #{attribute('email')}") do
+    its(:exit_status) { should eq 0 }
+    its(:stderr) { should eq '' }
+    its(:stdout) do
+      should start_with("Success! Wrote encrypted key")
+    end
   end
 
 end

@@ -1,0 +1,5 @@
+name: key_distributor
+attributes:
+  - name: email
+    required: true
+    type: string

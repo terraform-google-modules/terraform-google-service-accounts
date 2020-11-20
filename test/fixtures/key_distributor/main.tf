@@ -1,5 +1,5 @@
 /**
- * Copyright 2019 Google LLC
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,6 +14,20 @@
  * limitations under the License.
  */
 
-terraform {
-  required_version = ">= 0.12"
+module "distributor" {
+  source          = "../../../examples/key_distributor"
+  project_id      = var.project_id
+  public_key_file = "${path.module}/public.asc"
+  cfn_members = [
+    "serviceAccount:${var.sa_email}"
+  ]
+}
+
+module "service_account" {
+  source        = "../../.."
+  project_id    = var.project_id
+  names         = ["distributor-target"]
+  project_roles = ["${var.project_id}=>roles/viewer"]
+  display_name  = "Distributor Target"
+  description   = "Target for distributor tests"
 }

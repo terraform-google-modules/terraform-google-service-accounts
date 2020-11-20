@@ -46,3 +46,11 @@ suites:
           backend: gcp
           controls:
             - gcp
+  - name: key_distributor
+    driver:
+      root_module_directory: test/fixtures/key_distributor/
+    verifier:
+      color: false
+      systems:
+        - name: key_distributor
+          backend: local
