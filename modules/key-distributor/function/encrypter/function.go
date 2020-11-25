@@ -95,7 +95,7 @@ func GenerateAndEncrypt(w http.ResponseWriter, r *http.Request) {
 
 	// Do the encryption
 	var encryptedData bytes.Buffer
-	if err = encrypt([]*openpgp.Entity{recipient}, nil, string(key), &encryptedData); err != nil {
+	if err = encrypt(recipient, nil, string(key), &encryptedData); err != nil {
 		e := fmt.Sprintf("Could not encrypt: %v", err)
 		http.Error(w, e, http.StatusInternalServerError)
 		return
@@ -115,9 +115,9 @@ func GenerateAndEncrypt(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, string(resp))
 }
 
-func encrypt(recip []*openpgp.Entity, signer *openpgp.Entity, plaintext string, w io.Writer) error {
+func encrypt(recipient, signer *openpgp.Entity, plaintext string, w io.Writer) error {
 	r := strings.NewReader(plaintext)
-	wc, err := openpgp.Encrypt(w, recip, signer, &openpgp.FileHints{IsBinary: true}, nil)
+	wc, err := openpgp.Encrypt(w, []*openpgp.Entity{recipient}, signer, &openpgp.FileHints{IsBinary: true}, nil)
 	if err != nil {
 		return err
 	}

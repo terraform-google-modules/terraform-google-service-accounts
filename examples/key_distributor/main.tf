@@ -17,7 +17,7 @@
 module "distributor" {
   source = "../../modules/key-distributor"
 
-  project_id      = var.project_id
-  public_key_file = var.public_key_file
-  cfn_members     = var.cfn_members
+  project_id       = var.project_id
+  public_key_file  = var.public_key_file
+  function_members = var.cfn_members
 }

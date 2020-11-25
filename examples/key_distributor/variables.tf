@@ -25,7 +25,7 @@ variable "public_key_file" {
 }
 
 variable "cfn_members" {
-  description = "List of Cloud Function invokers in IAM member format"
+  description = "List of Cloud Function invokers in IAM member format(ex. `[\"user:me@example.com\"]`)."
   type        = list(string)
 }
 

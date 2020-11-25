@@ -55,7 +55,7 @@ variable "public_key_file" {
   default     = "pubkey.asc"
 }
 
-variable "cfn_members" {
+variable "function_members" {
   type        = list(string)
   description = "List of IAM members (users, groups, etc) with the invoker permission on the CLoud Function"
 }

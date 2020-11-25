@@ -15,31 +15,32 @@
  */
 
 locals {
-  cfn_files = [
-    "${path.module}/cfn/encrypter/function.go",
-    "${path.module}/cfn/encrypter/go.mod",
+  function_files = [
+    "${path.module}/function/encrypter/function.go",
+    "${path.module}/function/encrypter/go.mod",
   ]
-  cfn_md5sums     = [for f in local.cfn_files : filemd5(f)]
-  cfn_dirchecksum = md5(join("-", local.cfn_md5sums))
+  function_md5sums     = [for f in local.function_files : filemd5(f)]
+  function_dirchecksum = md5(join("-", local.function_md5sums))
+  project_ids          = toset(concat([var.project_id], var.project_ids))
 }
 
-resource "google_storage_bucket" "cfn_bucket" {
+resource "google_storage_bucket" "function_bucket" {
   project       = var.project_id
-  name          = "${var.project_id}-cfn-${var.function_name}"
+  name          = "${var.project_id}-function-${var.function_name}"
   location      = "US"
   force_destroy = true
 }
 
-data "archive_file" "cfn" {
+data "archive_file" "function" {
   type        = "zip"
-  source_dir  = "${path.module}/cfn/encrypter"
-  output_path = "${path.module}/cfn/build/${local.cfn_dirchecksum}.zip"
+  source_dir  = "${path.module}/function/encrypter"
+  output_path = "${path.module}/function/build/${local.function_dirchecksum}.zip"
 }
 
 resource "google_storage_bucket_object" "archive" {
-  name   = data.archive_file.cfn.output_path
-  bucket = google_storage_bucket.cfn_bucket.name
-  source = data.archive_file.cfn.output_path
+  name   = data.archive_file.function.output_path
+  bucket = google_storage_bucket.function_bucket.name
+  source = data.archive_file.function.output_path
 }
 
 resource "google_service_account" "distributor" {
@@ -65,7 +66,7 @@ resource "google_folder_iam_member" "distributor" {
 }
 
 resource "google_project_iam_member" "distributor" {
-  for_each = toset(var.project_ids)
+  for_each = local.project_ids
   member   = "serviceAccount:${google_service_account.distributor.email}"
   role     = "roles/iam.serviceAccountKeyAdmin"
   project  = var.project_id
@@ -80,7 +81,7 @@ resource "google_cloudfunctions_function" "function" {
   trigger_http = true
 
   service_account_email = google_service_account.distributor.email
-  source_archive_bucket = google_storage_bucket.cfn_bucket.name
+  source_archive_bucket = google_storage_bucket.function_bucket.name
   source_archive_object = google_storage_bucket_object.archive.name
   entry_point           = "GenerateAndEncrypt"
   environment_variables = {
@@ -89,7 +90,7 @@ resource "google_cloudfunctions_function" "function" {
 }
 
 resource "google_cloudfunctions_function_iam_member" "invoker" {
-  for_each       = toset(var.cfn_members)
+  for_each       = toset(var.function_members)
   project        = var.project_id
   cloud_function = google_cloudfunctions_function.function.name
   region         = var.region

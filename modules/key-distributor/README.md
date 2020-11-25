@@ -145,9 +145,9 @@ gpg --decrypt data.gpg
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| cfn\_members | List of IAM members (users, groups, etc) with the invoker permission on the CLoud Function | `list(string)` | n/a | yes |
 | create\_wrapper\_script | Whether to create the get-key wrapper script | `bool` | `true` | no |
 | folder\_ids | Folder IDs where the Cloud Function will have access to create Service Account keys. | `list` | `[]` | no |
+| function\_members | List of IAM members (users, groups, etc) with the invoker permission on the CLoud Function | `list(string)` | n/a | yes |
 | function\_name | Name of the Cloud Function | `string` | `"key-distributor"` | no |
 | org\_id | Organization ID where the Cloud Function will have access to create Service Account keys. | `string` | `""` | no |
 | project\_id | Project Id for the Cloud Function. Also if folder\_ids and project\_ids are empty, the Cloud Function will be granted access to create keys in this project by default. | `string` | n/a | yes |
