@@ -21,15 +21,18 @@ import sys
 import re
 import json
 
+
 def get_key_for_each_key(state, old_resource):
-  account_id = state.resource_value(old_resource, "service_account_id")
-  name = account_id.split('@')[0]
-  return name
+    account_id = state.resource_value(old_resource, "service_account_id")
+    name = account_id.split('@')[0]
+    return name
+
 
 def get_iam_for_each_key(state, old_resource):
-  account_id = state.resource_value(old_resource, "service_account_id")
-  name = account_id.split('@')[0]
-  return name
+    account_id = state.resource_value(old_resource, "service_account_id")
+    name = account_id.split('@')[0]
+    return name
+
 
 MIGRATIONS = [
     {
@@ -47,6 +50,7 @@ MIGRATIONS = [
         "for_each_migration_key": get_key_for_each_key
     }
 ]
+
 
 class ModuleMigration:
     """
@@ -113,11 +117,11 @@ class ModuleMigration:
             # Whole collection is moved to new location. Now needs right index
             new.plural = True
             new_indexed = copy.deepcopy(new)
-            if callable(migration["for_each_migration_key"]):
-              new_indexed.key = migration["for_each_migration_key"](self.state, old)
+            mig = migration["for_each_migration_key"]
+            if callable(mig):
+                new_indexed.key = mig(self.state, old)
             else:
-              new_indexed.key = self.state.resource_value(
-                  old, migration["for_each_migration_key"])
+                new_indexed.key = self.state.resource_value(old, mig)
             pair = (new.path(), new_indexed.path())
             moves.append(pair)
 

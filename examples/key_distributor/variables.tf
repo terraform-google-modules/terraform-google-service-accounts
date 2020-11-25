@@ -1,5 +1,5 @@
 /**
- * Copyright 2019 Google LLC
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,6 +14,22 @@
  * limitations under the License.
  */
 
-terraform {
-  required_version = ">= 0.12"
+variable "project_id" {
+  description = "The ID of the project in which to provision resources."
+  type        = string
+}
+
+variable "public_key_file" {
+  description = "ASCII armored PGP public key file"
+  type        = string
+}
+
+variable "cfn_members" {
+  description = "List of Cloud Function invokers in IAM member format(ex. `[\"user:me@example.com\"]`)."
+  type        = list(string)
+}
+
+variable "region" {
+  description = "Region where the Cloud Function will be launched"
+  default     = "us-central1"
 }

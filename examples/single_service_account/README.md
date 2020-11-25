@@ -6,9 +6,9 @@ This example illustrates how to use the `service-accounts` module to generate a 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| prefix | Prefix applied to service account names. | string | `""` | no |
-| project\_id | The ID of the project in which to provision resources. | string | n/a | yes |
+|------|-------------|------|---------|:--------:|
+| prefix | Prefix applied to service account names. | `string` | `""` | no |
+| project\_id | The ID of the project in which to provision resources. | `string` | n/a | yes |
 
 ## Outputs
 
