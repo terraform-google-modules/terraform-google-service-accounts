@@ -16,8 +16,8 @@
 
 locals {
   function_files = [
-    "${path.module}/function/encrypter/function.go",
-    "${path.module}/function/encrypter/go.mod",
+    "${path.module}/files/function/main.go",
+    "${path.module}/files/function/go.mod",
   ]
   function_md5sums     = [for f in local.function_files : filemd5(f)]
   function_dirchecksum = md5(join("-", local.function_md5sums))
@@ -33,8 +33,8 @@ resource "google_storage_bucket" "function_bucket" {
 
 data "archive_file" "function" {
   type        = "zip"
-  source_dir  = "${path.module}/function/encrypter"
-  output_path = "${path.module}/function/build/${local.function_dirchecksum}.zip"
+  source_dir  = "${path.module}/files/function"
+  output_path = "${path.module}/files/build/${local.function_dirchecksum}.zip"
 }
 
 resource "google_storage_bucket_object" "archive" {

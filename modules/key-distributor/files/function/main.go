@@ -103,7 +103,7 @@ func GenerateAndEncrypt(w http.ResponseWriter, r *http.Request) {
 
 	// Create the response object
 	resp, err := json.Marshal(encryptResponse{
-		EncryptedKey: base64.URLEncoding.EncodeToString(encryptedData.Bytes()),
+		EncryptedKey: base64.StdEncoding.EncodeToString(encryptedData.Bytes()),
 	})
 	if err != nil {
 		e := fmt.Sprintf("Could not marshal response: %v", err)
