@@ -15,7 +15,7 @@
  */
 
 provider "google" {
-  version = "~> 3.17.0"
+  version = "~> 3.53"
 }
 
 module "service_accounts" {
