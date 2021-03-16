@@ -7,6 +7,19 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.0](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/compare/v3.0.1...v4.0.0) (2021-03-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* Restrict to Terraform 0.13+ and add module attribution (#38)
+
+### Features
+
+* Added Service Account key distributor submodule ([#32](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/issues/32)) ([fb794a5](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/commit/fb794a5a78495973b83bc3162fe1c497058c7647))
+* Enable overriding descriptions for individual service accounts ([#41](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/issues/41)) ([9abb768](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/commit/9abb7685d8070d2b54f5f8775a2041faed4de666))
+* Restrict to Terraform 0.13+ and add module attribution ([#38](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/issues/38)) ([c423601](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/commit/c42360190ad4fbac2466ed77db469e2f2b4e60b1))
+
 ### [3.0.1](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/compare/v3.0.0...v3.0.1) (2020-07-21)
 
 
