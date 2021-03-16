@@ -75,6 +75,12 @@ variable "display_name" {
 
 variable "description" {
   type        = string
-  description = "Descriptions of the created service accounts (defaults to no description)"
+  description = "Default description of the created service accounts (defaults to no description)"
   default     = ""
+}
+
+variable "descriptions" {
+  type        = list(string)
+  description = "List of descriptions for the created service accounts (elements default to the value of `description`)"
+  default     = []
 }
