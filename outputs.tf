@@ -31,7 +31,7 @@ output "iam_email" {
 
 output "key" {
   description = "Service account key (for single use)."
-  value       = data.template_file.keys[var.names[0]].rendered
+  value       = var.generate_keys ? base64decode(google_service_account_key.keys[var.names[0]].private_key) : ""
 }
 
 output "service_accounts" {
@@ -64,17 +64,8 @@ output "iam_emails_list" {
   value       = local.iam_emails_list
 }
 
-data "template_file" "keys" {
-  for_each = local.names
-  template = "$${key}"
-
-  vars = {
-    key = var.generate_keys ? base64decode(google_service_account_key.keys[each.value].private_key) : ""
-  }
-}
-
 output "keys" {
   description = "Map of service account keys."
   sensitive   = true
-  value       = { for k, v in data.template_file.keys : k => v.rendered }
+  value       = { for k, v in local.names : k => var.generate_keys ? "$${base64decode(google_service_account_key.keys[v].private_key)}" : "" }
 }
