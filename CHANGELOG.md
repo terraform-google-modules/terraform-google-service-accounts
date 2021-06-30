@@ -7,6 +7,13 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+### [4.0.2](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.0.1...v4.0.2) (2021-06-30)
+
+
+### Bug Fixes
+
+* declare "key" output as sensitive value ([#47](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/issues/47)) ([31304f2](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/commit/31304f2bc30bc29e53d798de067ee543cba237b9))
+
 ### [4.0.1](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.0.0...v4.0.1) (2021-06-04)
 
 
