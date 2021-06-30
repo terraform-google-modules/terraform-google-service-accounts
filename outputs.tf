@@ -31,6 +31,7 @@ output "iam_email" {
 
 output "key" {
   description = "Service account key (for single use)."
+  sensitive   = true
   value       = var.generate_keys ? base64decode(google_service_account_key.keys[var.names[0]].private_key) : ""
 }
 
