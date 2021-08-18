@@ -68,5 +68,5 @@ output "iam_emails_list" {
 output "keys" {
   description = "Map of service account keys."
   sensitive   = true
-  value       = { for k, v in local.names : k => var.generate_keys ? "${base64decode(google_service_account_key.keys[v].private_key)}" : "" }
+  value       = { for k, v in local.names : k => var.generate_keys ? base64decode(google_service_account_key.keys[v].private_key) : "" }
 }
