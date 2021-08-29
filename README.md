@@ -11,7 +11,8 @@ The resources/services/activations/deletions that this module will create/trigge
 - one optional service account key per service account
 
 ## Compatibility
-This module is meant for use with Terraform 0.13. If you haven't
+This module is meant for use with Terraform 0.13+ and tested using Terraform 1.0+. If you find incompatibilities using Terraform >=0.13, please open an issue.
+ If you haven't
 [upgraded](https://www.terraform.io/upgrade-guides/0-13.html) and need a Terraform
 0.12.x-compatible version of this module, the last released version
 intended for Terraform 0.12.x is [v3.0.1](https://registry.terraform.io/modules/terraform-google-modules/-service-accounts/google/v3.0.1).

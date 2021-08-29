@@ -21,13 +21,13 @@ variable "org_id" {
 }
 
 variable "folder_ids" {
-  type        = list
+  type        = list(any)
   description = "Folder IDs where the Cloud Function will have access to create Service Account keys."
   default     = []
 }
 
 variable "project_ids" {
-  type        = list
+  type        = list(any)
   description = "Project IDs where the Cloud Function will have access to create Service Account keys."
   default     = []
 }
