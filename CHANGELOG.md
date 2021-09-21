@@ -7,6 +7,13 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+### [4.0.3](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.0.2...v4.0.3) (2021-09-01)
+
+
+### Bug Fixes
+
+* remove extraneous dollar sign in `keys` output ([#50](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/issues/50)) ([711e1db](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/commit/711e1dbc6f15d463cf831bea7bad80b4b07b3fcd))
+
 ### [4.0.2](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.0.1...v4.0.2) (2021-06-30)
 
 
