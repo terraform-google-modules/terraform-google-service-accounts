@@ -54,6 +54,8 @@ Functional examples are included in the
 | prefix | Prefix applied to service account names. | `string` | `""` | no |
 | project\_id | Project id where service account will be created. | `string` | n/a | yes |
 | project\_roles | Common roles to apply to all service accounts, project=>role as elements. | `list(string)` | `[]` | no |
+| rotation\_days | Time key rotation | `number` | `30` | no |
+| rotation\_key | Time key rotation | `bool` | `false` | no |
 
 ## Outputs
 

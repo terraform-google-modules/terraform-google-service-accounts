@@ -98,8 +98,16 @@ resource "google_organization_iam_member" "organization_viewer" {
   member   = "serviceAccount:${google_service_account.service_accounts[each.value].email}"
 }
 
+resource "time_rotating" "key_rotation" {
+  rotation_days = var.rotation_days
+}
+
 # keys
 resource "google_service_account_key" "keys" {
   for_each           = var.generate_keys ? local.names : toset([])
   service_account_id = google_service_account.service_accounts[each.value].email
+
+  keepers = var.rotation_key ? {
+    rotation_time = time_rotating.key_rotation.rotation_rfc3339
+  } : {}
 }
