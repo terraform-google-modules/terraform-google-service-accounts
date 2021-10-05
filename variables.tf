@@ -93,6 +93,6 @@ variable "rotation_days" {
 
 variable "rotation_key" {
   type        = bool
-  description = "Time key rotation"
+  description = "Active key rotation"
   default     = false
 }
