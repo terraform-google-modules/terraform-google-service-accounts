@@ -85,7 +85,7 @@ variable "descriptions" {
   default     = []
 }
 
-variable "rotation_days" {
+variable "key_rotation_days" {
   type        = number
   description = "Number of days to rotate service account key"
   default     = 30
