@@ -99,6 +99,7 @@ resource "google_organization_iam_member" "organization_viewer" {
 }
 
 resource "time_rotating" "key_rotation" {
+  count         = var.rotation_key == true ? 1 : 0
   rotation_days = var.key_rotation_days
 }
 
@@ -108,6 +109,6 @@ resource "google_service_account_key" "keys" {
   service_account_id = google_service_account.service_accounts[each.value].email
 
   keepers = var.rotation_key ? {
-    rotation_time = time_rotating.key_rotation.rotation_rfc3339
+    rotation_time = time_rotating.key_rotation[count.index].rotation_rfc3339
   } : {}
 }
