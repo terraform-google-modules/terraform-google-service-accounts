@@ -109,6 +109,6 @@ resource "google_service_account_key" "keys" {
   service_account_id = google_service_account.service_accounts[each.value].email
 
   keepers = var.rotation_key ? {
-    rotation_time = time_rotating.key_rotation[count.index].rotation_rfc3339
+    rotation_time = time_rotating.key_rotation[0].rotation_rfc3339
   } : {}
 }
