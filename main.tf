@@ -99,7 +99,7 @@ resource "google_organization_iam_member" "organization_viewer" {
 }
 
 resource "time_rotating" "key_rotation" {
-  rotation_days = var.rotation_days
+  rotation_days = var.key_rotation_days
 }
 
 # keys
