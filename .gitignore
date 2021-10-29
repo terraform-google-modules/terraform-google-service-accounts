@@ -47,3 +47,6 @@ credentials.json
 **/*.gpg
 **/get-key
 **/*.zip
+
+# tf lock file
+.terraform.lock.hcl

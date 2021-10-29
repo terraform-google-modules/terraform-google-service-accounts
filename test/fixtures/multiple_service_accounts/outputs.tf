@@ -32,6 +32,7 @@ output "iam_emails" {
 output "keys" {
   description = "The service account keys."
   value       = module.example.keys
+  sensitive   = true
 }
 
 output "project_id" {
