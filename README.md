@@ -49,7 +49,7 @@ Functional examples are included in the
 | generate\_keys | Generate keys for service accounts. | `bool` | `false` | no |
 | grant\_billing\_role | Grant billing user role. | `bool` | `false` | no |
 | grant\_xpn\_roles | Grant roles for shared VPC management. | `bool` | `true` | no |
-| key\_rotation\_days | Number of days to rotate service account key | `number` | `0` | no |
+| key\_rotation\_days | Number of days to rotate service account key | `number` | `null` | no |
 | names | Names of the service accounts to create. | `list(string)` | `[]` | no |
 | org\_id | Id of the organization for org-level roles. | `string` | `""` | no |
 | prefix | Prefix applied to service account names. | `string` | `""` | no |

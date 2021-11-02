@@ -88,5 +88,5 @@ variable "descriptions" {
 variable "key_rotation_days" {
   type        = number
   description = "Number of days to rotate service account key"
-  default     = 0
+  default     = null
 }
