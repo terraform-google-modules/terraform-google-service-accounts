@@ -99,7 +99,7 @@ resource "google_organization_iam_member" "organization_viewer" {
 }
 
 resource "time_rotating" "key_rotation" {
-  count         = var.rotation_key == true ? 1 : 0
+  count         = var.key_rotation_days > 0 ? 1 : 0
   rotation_days = var.key_rotation_days
 }
 
@@ -108,7 +108,7 @@ resource "google_service_account_key" "keys" {
   for_each           = var.generate_keys ? local.names : toset([])
   service_account_id = google_service_account.service_accounts[each.value].email
 
-  keepers = var.rotation_key ? {
+  keepers = var.key_rotation_days > 0 ? {
     rotation_time = time_rotating.key_rotation[0].rotation_rfc3339
   } : {}
 }

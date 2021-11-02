@@ -49,13 +49,12 @@ Functional examples are included in the
 | generate\_keys | Generate keys for service accounts. | `bool` | `false` | no |
 | grant\_billing\_role | Grant billing user role. | `bool` | `false` | no |
 | grant\_xpn\_roles | Grant roles for shared VPC management. | `bool` | `true` | no |
-| key\_rotation\_days | Number of days to rotate service account key | `number` | `30` | no |
+| key\_rotation\_days | Number of days to rotate service account key | `number` | `0` | no |
 | names | Names of the service accounts to create. | `list(string)` | `[]` | no |
 | org\_id | Id of the organization for org-level roles. | `string` | `""` | no |
 | prefix | Prefix applied to service account names. | `string` | `""` | no |
 | project\_id | Project id where service account will be created. | `string` | n/a | yes |
 | project\_roles | Common roles to apply to all service accounts, project=>role as elements. | `list(string)` | `[]` | no |
-| rotation\_key | Active key rotation | `bool` | `false` | no |
 
 ## Outputs
 
