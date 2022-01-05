@@ -7,6 +7,13 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.1.0](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.0.3...v4.1.0) (2022-01-05)
+
+
+### Features
+
+* update TPG version constraints to allow 4.0 ([#54](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/issues/54)) ([36a2f59](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/commit/36a2f592823e9feffb1475695fa8a686b1626452))
+
 ### [4.0.3](https://www.github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.0.2...v4.0.3) (2021-09-01)
 
 
