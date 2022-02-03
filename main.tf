@@ -19,7 +19,7 @@ locals {
   org_billing           = var.grant_billing_role && var.billing_account_id == "" && var.org_id != ""
   prefix                = var.prefix != "" ? "${var.prefix}-" : ""
   xpn                   = var.grant_xpn_roles && var.org_id != ""
-  service_accounts_list = [for name in var.names : google_service_account.service_accounts[name]]
+  service_accounts_list = [for account in google_service_account.service_accounts : account]
   emails_list           = [for account in local.service_accounts_list : account.email]
   iam_emails_list       = [for email in local.emails_list : "serviceAccount:${email}"]
   names                 = toset(var.names)
