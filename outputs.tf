@@ -16,17 +16,17 @@
 
 output "service_account" {
   description = "Service account resource (for single use)."
-  value       = local.service_accounts_list[0]
+  value       = try(local.service_accounts_list[0], null)
 }
 
 output "email" {
   description = "Service account email (for single use)."
-  value       = local.emails_list[0]
+  value       = try(local.emails_list[0], null)
 }
 
 output "iam_email" {
   description = "IAM-format service account email (for single use)."
-  value       = local.iam_emails_list[0]
+  value       = try(local.iam_emails_list[0], null)
 }
 
 output "key" {
@@ -47,12 +47,12 @@ output "service_accounts_map" {
 
 output "emails" {
   description = "Service account emails by name."
-  value       = zipmap(var.names, local.emails_list)
+  value       = zipmap(local.service_accounts_list[*].name, local.emails_list)
 }
 
 output "iam_emails" {
   description = "IAM-format service account emails by name."
-  value       = zipmap(var.names, local.iam_emails_list)
+  value       = zipmap(local.service_accounts_list[*].name, local.iam_emails_list)
 }
 
 output "emails_list" {
