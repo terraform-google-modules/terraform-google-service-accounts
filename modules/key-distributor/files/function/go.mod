@@ -1,6 +1,6 @@
 module github.com/onetwopunch/terraform-google-gsa-encrypter/cfn/encrypter
 
-go 1.14
+go 1.18
 
 require (
 	golang.org/x/crypto v0.0.0-20200728195943-123391ffb6de
