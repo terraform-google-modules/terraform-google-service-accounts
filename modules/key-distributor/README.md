@@ -145,7 +145,6 @@ gpg --decrypt data.gpg
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| create\_wrapper\_script | Whether to create the get-key wrapper script | `bool` | `true` | no |
 | folder\_ids | Folder IDs where the Cloud Function will have access to create Service Account keys. | `list(any)` | `[]` | no |
 | function\_members | List of IAM members (users, groups, etc) with the invoker permission on the CLoud Function | `list(string)` | n/a | yes |
 | function\_name | Name of the Cloud Function | `string` | `"key-distributor"` | no |
@@ -159,8 +158,8 @@ gpg --decrypt data.gpg
 
 | Name | Description |
 |------|-------------|
-| function\_name | n/a |
-| project\_id | n/a |
-| region | n/a |
+| function\_name | The name for the Cloud Function. |
+| project\_id | The project id for the Cloud Function. |
+| region | The region for the Cloud Function |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

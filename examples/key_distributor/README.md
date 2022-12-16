@@ -27,7 +27,6 @@ For usage instructions, see the [module README](../../modules/key-distributor/RE
 | cfn\_members | List of Cloud Function invokers in IAM member format(ex. `["user:me@example.com"]`). | `list(string)` | n/a | yes |
 | project\_id | The ID of the project in which to provision resources. | `string` | n/a | yes |
 | public\_key\_file | ASCII armored PGP public key file | `string` | n/a | yes |
-| region | Region where the Cloud Function will be launched | `string` | `"us-central1"` | no |
 
 ## Outputs
 
