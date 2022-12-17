@@ -29,6 +29,7 @@ suites:
   - name: single_service_account
     driver:
       root_module_directory: test/fixtures/single_service_account/
+      verify_version: false
     verifier:
       color: false
       systems:
@@ -39,6 +40,7 @@ suites:
   - name: multiple_service_accounts
     driver:
       root_module_directory: test/fixtures/multiple_service_accounts/
+      verify_version: false
     verifier:
       color: false
       systems:
@@ -49,6 +51,7 @@ suites:
   - name: key_distributor
     driver:
       root_module_directory: test/fixtures/key_distributor/
+      verify_version: false
     verifier:
       color: false
       systems:
