@@ -59,9 +59,3 @@ variable "function_members" {
   type        = list(string)
   description = "List of IAM members (users, groups, etc) with the invoker permission on the CLoud Function"
 }
-
-variable "create_wrapper_script" {
-  type        = bool
-  description = "Whether to create the get-key wrapper script"
-  default     = true
-}

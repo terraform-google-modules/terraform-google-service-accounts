@@ -28,8 +28,3 @@ variable "cfn_members" {
   description = "List of Cloud Function invokers in IAM member format(ex. `[\"user:me@example.com\"]`)."
   type        = list(string)
 }
-
-variable "region" {
-  description = "Region where the Cloud Function will be launched"
-  default     = "us-central1"
-}
