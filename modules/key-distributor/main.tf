@@ -77,7 +77,7 @@ resource "google_cloudfunctions_function" "function" {
   region       = var.region
   name         = var.function_name
   description  = "Generates and encrypts a new Service Account key given a GPG public key"
-  runtime      = "go113"
+  runtime      = "go118"
   trigger_http = true
 
   service_account_email = google_service_account.distributor.email
