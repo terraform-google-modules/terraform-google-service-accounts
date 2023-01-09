@@ -7,6 +7,18 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.2.0](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.1.1...v4.2.0) (2023-01-06)
+
+
+### Features
+
+* update to GO 1.18 ([#72](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/72)) ([66b3bbd](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/66b3bbdb502b399f08c7bb8b93cc37661bf073d7))
+
+
+### Bug Fixes
+
+* fixes lint issues and generates metadata ([#69](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/69)) ([22465b2](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/22465b2486bb6e2968ee4829ddd042d755b08eda))
+
 ### [4.1.1](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.1.0...v4.1.1) (2022-02-03)
 
 
