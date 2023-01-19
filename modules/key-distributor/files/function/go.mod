@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	golang.org/x/crypto v0.5.0
-	google.golang.org/api v0.106.0
+	google.golang.org/api v0.107.0
 )
 
 require (
