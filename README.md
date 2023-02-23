@@ -24,7 +24,7 @@ Basic usage of this module is as follows:
 ```hcl
 module "service_accounts" {
   source        = "terraform-google-modules/service-accounts/google"
-  version       = "~> 3.0"
+  version       = "~> 4.2.0"
   project_id    = "<PROJECT ID>"
   prefix        = "test-sa"
   names         = ["first", "second"]
