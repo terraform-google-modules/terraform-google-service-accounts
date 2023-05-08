@@ -98,6 +98,7 @@ resource "google_organization_iam_member" "organization_viewer" {
   member   = "serviceAccount:${google_service_account.service_accounts[each.value].email}"
 }
 #hello
+    #test
 # keys
 resource "google_service_account_key" "keys" {
   for_each           = var.generate_keys ? local.names : toset([])
