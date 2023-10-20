@@ -20,15 +20,15 @@ terraform {
 
     google = {
       source  = "hashicorp/google"
-      version = ">= 3.53, < 5.0"
+      version = ">= 3.53, < 6"
     }
     archive = {
       source  = "hashicorp/archive"
-      version = "~> 2.2"
+      version = ">= 2.2"
     }
     local = {
       source  = "hashicorp/local"
-      version = "~> 2.2"
+      version = ">= 2.2"
     }
   }
 
