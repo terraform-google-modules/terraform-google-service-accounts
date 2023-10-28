@@ -30,4 +30,9 @@ control "gcp" do
     end
   end
 
+  attribute('display_names').each do |display_name|
+    describe google_service_accounts(project: "#{attribute('project_id')}") do
+      its('service_account_display_names'){ should include display_name }
+    end
+  end
 end

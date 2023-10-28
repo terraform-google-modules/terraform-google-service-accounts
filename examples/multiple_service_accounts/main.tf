@@ -20,7 +20,7 @@ module "service_accounts" {
   prefix        = ""
   names         = ["test-first", "test-second"]
   generate_keys = true
-  display_name  = "Test Service Accounts"
+  display_names = ["Test Service Accounts first", "Test Service Accounts second"]
   description   = "Test Service Accounts description"
 
   project_roles = [

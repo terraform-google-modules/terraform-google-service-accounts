@@ -30,3 +30,6 @@ attributes:
   - name: iam_emails
     required: true
     type: hash
+  - name: display_names
+    required: true
+    type: array

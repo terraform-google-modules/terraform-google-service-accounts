@@ -47,6 +47,7 @@ Functional examples are included in the
 | description | Default description of the created service accounts (defaults to no description) | `string` | `""` | no |
 | descriptions | List of descriptions for the created service accounts (elements default to the value of `description`) | `list(string)` | `[]` | no |
 | display\_name | Display names of the created service accounts (defaults to 'Terraform-managed service account') | `string` | `"Terraform-managed service account"` | no |
+| display\_names | List of display\_names for the created service accounts (elements default to the value of `display_name`) | `list(string)` | `[]` | no |
 | generate\_keys | Generate keys for service accounts. | `bool` | `false` | no |
 | grant\_billing\_role | Grant billing user role. | `bool` | `false` | no |
 | grant\_xpn\_roles | Grant roles for shared VPC management. | `bool` | `true` | no |
@@ -60,6 +61,7 @@ Functional examples are included in the
 
 | Name | Description |
 |------|-------------|
+| display\_names | display names variable. |
 | email | Service account email (for single use). |
 | emails | Service account emails by name. |
 | emails\_list | Service account emails as list. |
