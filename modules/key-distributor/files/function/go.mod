@@ -1,6 +1,6 @@
 module github.com/terraform-google-modules/terraform-google-service-accounts/modules/key-distributor/files/function
 
-go 1.18
+go 1.20.11
 
 require (
 	golang.org/x/crypto v0.7.0
