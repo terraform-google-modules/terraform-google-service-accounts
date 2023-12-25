@@ -15,7 +15,9 @@
  */
 
 module "service_accounts" {
-  source        = "../.."
+  source  = "terraform-google-modules/service-accounts/google"
+  version = "~> 4.0"
+
   project_id    = var.project_id
   prefix        = var.prefix
   names         = ["single-account"]
