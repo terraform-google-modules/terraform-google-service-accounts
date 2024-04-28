@@ -7,6 +7,15 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.2.3](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.2.2...v4.2.3) (2024-04-12)
+
+
+### Bug Fixes
+
+* **deps:** bump golang.org/x/crypto from 0.7.0 to 0.17.0 in /modules/key-distributor/files/function ([#104](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/104)) ([440d9b8](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/440d9b804e5a91fc2c2370bc12570f08ea935ab5))
+* **deps:** bump golang.org/x/net from 0.7.0 to 0.17.0 in /modules/key-distributor/files/function ([#94](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/94)) ([7581ac4](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/7581ac470fe05980cedecdf3c8c9200085c46499))
+* **deps:** bump google.golang.org/protobuf from 1.30.0 to 1.33.0 in /modules/key-distributor/files/function ([#112](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/112)) ([57f299d](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/57f299df02dd90d1dc2378384a726368a9808e18))
+
 ## [4.2.2](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.2.1...v4.2.2) (2023-10-20)
 
 
