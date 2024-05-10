@@ -1,0 +1,70 @@
+apiVersion: blueprints.cloud.google.com/v1alpha1
+kind: BlueprintMetadata
+metadata:
+  name: terraform-google-service-accounts
+  annotations:
+    config.kubernetes.io/local-config: "true"
+spec:
+  info:
+    title: Terraform Simple Service Account module
+    source:
+      repo: https://github.com/terraform-google-modules/terraform-google-service-accounts.git
+      sourceType: git
+      dir: /modules/simple-sa
+    version: 4.2.3
+    actuationTool:
+      flavor: Terraform
+      version: ">= 0.13.0"
+    description: {}
+  content:
+    examples:
+      - name: key_distributor
+        location: examples/key_distributor
+      - name: multiple_service_accounts
+        location: examples/multiple_service_accounts
+      - name: simple_sa
+        location: examples/simple_sa
+      - name: single_service_account
+        location: examples/single_service_account
+  interfaces:
+    variables:
+      - name: description
+        description: Default description of the created service accounts (defaults to no description)
+        varType: string
+        defaultValue: ""
+      - name: display_name
+        description: Display name of the created service accounts (defaults to 'Terraform-managed service account')
+        varType: string
+        defaultValue: Terraform-managed service account
+      - name: name
+        description: Name of service account
+        varType: string
+        required: true
+      - name: project_id
+        description: Project id where service account will be created
+        varType: string
+        required: true
+      - name: project_roles
+        description: Roles to grant the SA in specified project
+        varType: list(string)
+        required: true
+    outputs:
+      - name: email
+        description: Service account email
+  requirements:
+    roles:
+      - level: Project
+        roles:
+          - roles/resourcemanager.projectIamAdmin
+          - roles/iam.serviceAccountAdmin
+          - roles/iam.serviceAccountUser
+          - roles/iam.serviceAccountKeyAdmin
+          - roles/storage.admin
+          - roles/cloudfunctions.admin
+          - roles/serviceusage.serviceUsageAdmin
+    services:
+      - cloudresourcemanager.googleapis.com
+      - iam.googleapis.com
+      - serviceusage.googleapis.com
+      - cloudfunctions.googleapis.com
+      - cloudbuild.googleapis.com
