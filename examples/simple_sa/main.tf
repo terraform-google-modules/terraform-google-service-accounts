@@ -19,7 +19,7 @@ module "sa" {
   version = "~> 4.0"
 
   project_id = var.project_id
-  name       = "single-account"
+  name       = "simple-account"
   project_roles = [
     "roles/compute.imageUser",
     "roles/compute.networkUser"
