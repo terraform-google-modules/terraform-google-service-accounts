@@ -37,6 +37,6 @@ variable "description" {
 }
 
 variable "project_roles" {
-  type = list(string)
+  type        = list(string)
   description = "Roles to grant the SA in specified project"
 }
