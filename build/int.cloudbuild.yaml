@@ -48,12 +48,12 @@ steps:
   args: ['/bin/bash', '-c', 'cft test run TestSimpleSA --stage apply --verbose']
 - id: verify simple-sa
   waitFor:
-    - converge global-firewall-policy
+    - apply simple-sa
   name: 'gcr.io/cloud-foundation-cicd/$_DOCKER_IMAGE_DEVELOPER_TOOLS:$_DOCKER_TAG_VERSION_DEVELOPER_TOOLS'
   args: ['/bin/bash', '-c', 'cft test run TestSimpleSA --stage verify --verbose']
 - id: teardown simple-sa
   waitFor:
-    - verify global-firewall-policy
+    - verify simple-sa
   name: 'gcr.io/cloud-foundation-cicd/$_DOCKER_IMAGE_DEVELOPER_TOOLS:$_DOCKER_TAG_VERSION_DEVELOPER_TOOLS'
   args: ['/bin/bash', '-c', 'cft test run TestSimpleSA --stage teardown --verbose']
 tags:
