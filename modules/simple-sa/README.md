@@ -36,5 +36,6 @@ module "sa" {
 | Name | Description |
 |------|-------------|
 | email | Service account email |
+| id | Service account id and email |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

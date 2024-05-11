@@ -18,3 +18,11 @@ output "email" {
   description = "Service account email"
   value       = google_service_account.sa.email
 }
+
+output "id" {
+  description = "Service account id and email"
+  value = {
+    id    = google_service_account.sa.account_id,
+    email = google_service_account.sa.email
+  }
+}
