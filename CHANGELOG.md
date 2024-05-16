@@ -7,6 +7,18 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.3.0](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.2.3...v4.3.0) (2024-05-16)
+
+
+### Features
+
+* add simple SA module for managing SA and project IAM ([#118](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/118)) ([ee1516b](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/ee1516b78c7ec0c0671c1cc0a5f4cdad8c1de6a4))
+
+
+### Bug Fixes
+
+* **deps:** bump golang.org/x/net from 0.17.0 to 0.23.0 in /modules/key-distributor/files/function ([#115](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/115)) ([5550304](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/55503040ab6a03375ef84c576f624c0eae9e9d6e))
+
 ## [4.2.3](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.2.2...v4.2.3) (2024-04-12)
 
 
