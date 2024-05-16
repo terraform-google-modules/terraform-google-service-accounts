@@ -65,6 +65,8 @@ spec:
     outputs:
       - name: email
         description: Service account email
+      - name: id
+        description: Service account id and email
   requirements:
     roles:
       - level: Project
