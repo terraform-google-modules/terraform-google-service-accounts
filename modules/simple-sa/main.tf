@@ -1,5 +1,5 @@
 /**
- * Copyright 2019 Google LLC
+ * Copyright 2024 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,21 +14,16 @@
  * limitations under the License.
  */
 
-module "project" {
-  source  = "terraform-google-modules/project-factory/google"
-  version = "~> 15.0"
+resource "google_service_account" "sa" {
+  project      = var.project_id
+  account_id   = var.name
+  display_name = var.display_name
+  description  = var.description
+}
 
-  name              = "ci-service-accounts"
-  random_project_id = "true"
-  org_id            = var.org_id
-  folder_id         = var.folder_id
-  billing_account   = var.billing_account
-
-  activate_apis = [
-    "cloudresourcemanager.googleapis.com",
-    "iam.googleapis.com",
-    "serviceusage.googleapis.com",
-    "cloudfunctions.googleapis.com",
-    "cloudbuild.googleapis.com",
-  ]
+resource "google_project_iam_member" "roles" {
+  for_each = toset(var.project_roles)
+  project  = var.project_id
+  role     = each.value
+  member   = google_service_account.sa.member
 }

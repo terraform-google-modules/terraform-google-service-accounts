@@ -1,5 +1,5 @@
 /**
- * Copyright 2019 Google LLC
+ * Copyright 2024 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,21 +14,17 @@
  * limitations under the License.
  */
 
-module "project" {
-  source  = "terraform-google-modules/project-factory/google"
-  version = "~> 15.0"
+terraform {
+  required_version = ">= 0.13.0"
 
-  name              = "ci-service-accounts"
-  random_project_id = "true"
-  org_id            = var.org_id
-  folder_id         = var.folder_id
-  billing_account   = var.billing_account
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = ">= 3.53, < 6"
+    }
+  }
 
-  activate_apis = [
-    "cloudresourcemanager.googleapis.com",
-    "iam.googleapis.com",
-    "serviceusage.googleapis.com",
-    "cloudfunctions.googleapis.com",
-    "cloudbuild.googleapis.com",
-  ]
+  provider_meta "google" {
+    module_name = "blueprints/terraform/terraform-google-service-accounts:simple-sa/v4.2.3"
+  }
 }
