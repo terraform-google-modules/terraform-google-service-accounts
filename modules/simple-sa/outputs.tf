@@ -19,6 +19,11 @@ output "email" {
   value       = google_service_account.sa.email
 }
 
+output "iam_email" {
+  description = "IAM format service account email"
+  value       = "serviceAccount:${google_service_account.sa.email}"
+}
+
 output "id" {
   description = "Service account id and email"
   value = {
