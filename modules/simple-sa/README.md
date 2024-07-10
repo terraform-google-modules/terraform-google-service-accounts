@@ -36,6 +36,8 @@ module "sa" {
 | Name | Description |
 |------|-------------|
 | email | Service account email |
+| env\_vars | Exported environment variables |
+| iam\_email | IAM format service account email |
 | id | Service account id and email |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

@@ -34,5 +34,6 @@ output "id" {
 
 output "env_vars" {
   description = "Exported environment variables"
-  value = { "SERVICE_ACCOUNT": google_service_account.sa.email}
+  value = { "SERVICE_ACCOUNT_EMAIL" : google_service_account.sa.email,
+  "SERVICE_ACCOUNT_IAM_EMAIL" : "serviceAccount:${google_service_account.sa.email}" }
 }
