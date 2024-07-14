@@ -19,10 +19,21 @@ output "email" {
   value       = google_service_account.sa.email
 }
 
+output "iam_email" {
+  description = "IAM format service account email"
+  value       = google_service_account.sa.member
+}
+
 output "id" {
   description = "Service account id and email"
   value = {
     id    = google_service_account.sa.account_id,
     email = google_service_account.sa.email
   }
+}
+
+output "env_vars" {
+  description = "Exported environment variables"
+  value = { "SERVICE_ACCOUNT_EMAIL" : google_service_account.sa.email,
+  "SERVICE_ACCOUNT_IAM_EMAIL" : google_service_account.sa.member }
 }

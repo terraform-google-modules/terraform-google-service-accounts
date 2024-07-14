@@ -14,6 +14,8 @@ This example shows how to use the `simple-sa` submodule.
 | Name | Description |
 |------|-------------|
 | email | Service account email |
+| env\_vars | Exported environment variables |
+| iam\_email | IAM format service account email |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

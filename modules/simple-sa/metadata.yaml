@@ -65,6 +65,10 @@ spec:
     outputs:
       - name: email
         description: Service account email
+      - name: env_vars
+        description: Exported environment variables
+      - name: iam_email
+        description: IAM format service account email
       - name: id
         description: Service account id and email
   requirements:

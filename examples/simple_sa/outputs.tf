@@ -18,3 +18,13 @@ output "email" {
   description = "Service account email"
   value       = module.sa.email
 }
+
+output "iam_email" {
+  description = "IAM format service account email"
+  value       = module.sa.iam_email
+}
+
+output "env_vars" {
+  description = "Exported environment variables"
+  value       = module.sa.env_vars
+}
