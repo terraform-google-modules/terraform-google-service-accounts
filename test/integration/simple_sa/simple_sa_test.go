@@ -37,6 +37,12 @@ func TestSimpleSA(t *testing.T) {
 			for _, b := range bindings {
 				assert.Contains(expectedRoles, b.Get("bindings.role").String())
 			}
+
+			iam_email := sa.GetStringOutput("iam_email")
+			env_vars := sa.GetStringOutput("env_vars")
+			assert.Contains(iam_email, "serviceAccount:")
+			assert.Contains(env_vars, "SERVICE_ACCOUNT_EMAIL")
+			assert.Contains(env_vars, "SERVICE_ACCOUNT_IAM_EMAIL")
 		})
 	sa.Test()
 }
