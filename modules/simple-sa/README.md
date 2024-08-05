@@ -38,6 +38,6 @@ module "sa" {
 | email | Service account email |
 | env\_vars | Exported environment variables |
 | iam\_email | IAM format service account email |
-| id | Service account id and email |
+| id | Service account id in the format 'projects/{{project}}/serviceAccounts/{{email}}' |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
