@@ -23,7 +23,7 @@ spec:
   source:
     repo: https://github.com/terraform-google-modules/terraform-google-service-accounts
     sourceType: git
-  version: 4.2.3
+  version: 4.3.0
   actuationTool:
     type: Terraform
     version: '>= 0.13'
