@@ -7,6 +7,22 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.3.0](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.2.3...v4.3.0) (2024-08-06)
+
+
+### Features
+
+* Add iam_email and env_vars output to simple-sa submodule ([#122](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/122)) ([ae592d2](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/ae592d233a85ce04b9cacc56d04862231cdebc43))
+* add simple SA module for managing SA and project IAM ([#118](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/118)) ([ee1516b](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/ee1516b78c7ec0c0671c1cc0a5f4cdad8c1de6a4))
+
+
+### Bug Fixes
+
+* **deps:** bump golang.org/x/net from 0.17.0 to 0.23.0 in /modules/key-distributor/files/function ([#115](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/115)) ([5550304](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/55503040ab6a03375ef84c576f624c0eae9e9d6e))
+* **deps:** update key-distrubutor to GO v1.20 ([#124](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/124)) ([cbaa4b1](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/cbaa4b1a81a3fe5f2bd885879307f6d945131fd3))
+* Fix output "id" in "simple-sa" module ([#125](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/125)) ([3df2ae8](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/3df2ae83d69f3d1ffb87c7ff227c417076b8587f))
+* Update the format of "id" output in the "simple-sa" module ([#123](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/123)) ([4e586a7](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/4e586a7a44151078329972b38d553748ee000983))
+
 ## [4.2.3](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.2.2...v4.2.3) (2024-04-12)
 
 
