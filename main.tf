@@ -37,7 +37,7 @@ locals {
 resource "google_service_account" "service_accounts" {
   for_each     = local.names
   account_id   = "${local.prefix}${lower(each.value)}"
-  display_name = var.display_name
+  display_name = index(var.names, each.value) >= length(var.display_names) ? var.display_name : element(var.display_names, index(var.names, each.value))
   description  = index(var.names, each.value) >= length(var.descriptions) ? var.description : element(var.descriptions, index(var.names, each.value))
   project      = var.project_id
 }
