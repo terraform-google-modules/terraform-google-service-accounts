@@ -26,7 +26,7 @@ output "iam_email" {
 
 output "id" {
   description = "Service account id in the format 'projects/{{project}}/serviceAccounts/{{email}}'"
-  value       = google_service_account.sa.account_id
+  value       = google_service_account.sa.id
 }
 
 output "env_vars" {
