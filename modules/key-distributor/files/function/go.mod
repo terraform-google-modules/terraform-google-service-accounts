@@ -3,8 +3,8 @@ module github.com/terraform-google-modules/terraform-google-service-accounts/mod
 go 1.20
 
 require (
-	golang.org/x/crypto v0.26.0
-	google.golang.org/api v0.191.0
+	golang.org/x/crypto v0.25.0
+	google.golang.org/api v0.189.0
 )
 
 require (
