@@ -63,14 +63,27 @@ spec:
         varType: list(string)
         required: true
     outputs:
+      - name: account_details
+        description: Service account id and email
+        type:
+          - object
+          - email: string
+            id: string
       - name: email
         description: Service account email
+        type: string
       - name: env_vars
         description: Exported environment variables
+        type:
+          - object
+          - SERVICE_ACCOUNT_EMAIL: string
+            SERVICE_ACCOUNT_IAM_EMAIL: string
       - name: iam_email
         description: IAM format service account email
+        type: string
       - name: id
-        description: Service account id and email
+        description: Service account id in the format 'projects/{{project}}/serviceAccounts/{{email}}'
+        type: string
   requirements:
     roles:
       - level: Project

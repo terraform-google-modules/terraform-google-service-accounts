@@ -35,6 +35,7 @@ module "sa" {
 
 | Name | Description |
 |------|-------------|
+| account\_details | Service account id and email |
 | email | Service account email |
 | env\_vars | Exported environment variables |
 | iam\_email | IAM format service account email |
