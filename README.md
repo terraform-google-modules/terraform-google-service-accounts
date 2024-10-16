@@ -46,6 +46,7 @@ Functional examples are included in the
 | billing\_account\_id | If assigning billing role, specificy a billing account (default is to assign at the organizational level). | `string` | `""` | no |
 | description | Default description of the created service accounts (defaults to no description) | `string` | `""` | no |
 | descriptions | List of descriptions for the created service accounts (elements default to the value of `description`) | `list(string)` | `[]` | no |
+| disabled | Whether a service account is disabled or not. Defaults to false. This field has no effect during creation. Must be set after creation to disable a service account. | `bool` | `false` | no |
 | display\_name | Display names of the created service accounts (defaults to 'Terraform-managed service account') | `string` | `"Terraform-managed service account"` | no |
 | generate\_keys | Generate keys for service accounts. | `bool` | `false` | no |
 | grant\_billing\_role | Grant billing user role. | `bool` | `false` | no |
