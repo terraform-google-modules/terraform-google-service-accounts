@@ -7,6 +7,13 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.4.1](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.4.0...v4.4.1) (2024-10-25)
+
+
+### Bug Fixes
+
+* Add new output account_details, output type and metadata.display.yaml ([#133](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/133)) ([2a5adbf](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/2a5adbfea6e9774a2d702f28857f4c907daa31c9))
+
 ## [4.4.0](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.3.0...v4.4.0) (2024-08-29)
 
 
