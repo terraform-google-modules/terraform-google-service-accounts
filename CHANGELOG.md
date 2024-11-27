@@ -7,6 +7,13 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.4.2](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.4.1...v4.4.2) (2024-11-27)
+
+
+### Bug Fixes
+
+* update metadata to reflect original variable's order ([#137](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/137)) ([4d86b54](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/4d86b54fbca1b0a61fa94b797003a4a94fc3bd32))
+
 ## [4.4.1](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.4.0...v4.4.1) (2024-10-25)
 
 
