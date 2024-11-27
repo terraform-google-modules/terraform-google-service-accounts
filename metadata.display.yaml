@@ -20,25 +20,43 @@ metadata:
     config.kubernetes.io/local-config: "true"
 spec:
   info:
-    title: Terraform Simple Service Account module
+    title: Terraform Service Accounts Module
     source:
       repo: https://github.com/terraform-google-modules/terraform-google-service-accounts.git
       sourceType: git
-      dir: /modules/simple-sa
   ui:
     input:
       variables:
+        billing_account_id:
+          name: billing_account_id
+          title: Billing Account Id
         description:
           name: description
           title: Description
-          invisible: false
+        descriptions:
+          name: descriptions
+          title: Descriptions
         display_name:
           name: display_name
           title: Display Name
-          invisible: false
-        name:
-          name: name
-          title: Name
+        generate_keys:
+          name: generate_keys
+          title: Generate Keys
+        grant_billing_role:
+          name: grant_billing_role
+          title: Grant Billing Role
+        grant_xpn_roles:
+          name: grant_xpn_roles
+          title: Grant Xpn Roles
+        names:
+          name: names
+          title: Names
+        org_id:
+          name: org_id
+          title: Org Id
+        prefix:
+          name: prefix
+          title: Prefix
         project_id:
           name: project_id
           title: Project Id

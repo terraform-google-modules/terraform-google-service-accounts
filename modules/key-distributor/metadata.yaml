@@ -1,4 +1,4 @@
-# Copyright 2022 Google LLC
+# Copyright 2024 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,80 +19,89 @@ metadata:
   annotations:
     config.kubernetes.io/local-config: "true"
 spec:
-  title: Service Account Key Distributor
-  source:
-    repo: https://github.com/terraform-google-modules/terraform-google-service-accounts
-    sourceType: git
-  version: 4.4.1
-  actuationTool:
-    type: Terraform
-    version: '>= 0.13'
-  examples:
-  - name: key_distributor
-    location: examples/key_distributor
-  - name: multiple_service_accounts
-    location: examples/multiple_service_accounts
-  - name: single_service_account
-    location: examples/single_service_account
-  variables:
-  - name: folder_ids
-    description: Folder IDs where the Cloud Function will have access to create Service Account keys.
-    type: list(any)
-    default: []
-    required: false
-  - name: function_members
-    description: List of IAM members (users, groups, etc) with the invoker permission on the CLoud Function
-    type: list(string)
-    required: true
-  - name: function_name
-    description: Name of the Cloud Function
-    type: string
-    default: key-distributor
-    required: false
-  - name: org_id
-    description: Organization ID where the Cloud Function will have access to create Service Account keys.
-    type: string
-    default: ""
-    required: false
-  - name: project_id
-    description: Project Id for the Cloud Function. Also if folder_ids and project_ids are empty, the Cloud Function will be granted access to create keys in this project by default.
-    type: string
-    required: true
-  - name: project_ids
-    description: Project IDs where the Cloud Function will have access to create Service Account keys.
-    type: list(any)
-    default: []
-    required: false
-  - name: public_key_file
-    description: Path of the ascii armored gpg public key. Create by running `gpg --export --armor <key-id> > pubkey.asc`
-    type: string
-    default: pubkey.asc
-    required: false
-  - name: region
-    description: The region where the Cloud Function will run
-    type: string
-    default: us-central1
-    required: false
-  outputs:
-  - name: function_name
-    description: The name for the Cloud Function.
-  - name: project_id
-    description: The project id for the Cloud Function.
-  - name: region
-    description: The region for the Cloud Function
-  roles:
-  - level: Project
+  info:
+    title: Service Account Key Distributor
+    source:
+      repo: https://github.com/terraform-google-modules/terraform-google-service-accounts.git
+      sourceType: git
+      dir: /modules/key-distributor
+    version: 4.4.0
+    actuationTool:
+      flavor: Terraform
+      version: ">= 0.13"
+    description: {}
+  content:
+    examples:
+      - name: key_distributor
+        location: examples/key_distributor
+      - name: multiple_service_accounts
+        location: examples/multiple_service_accounts
+      - name: simple_sa
+        location: examples/simple_sa
+      - name: single_service_account
+        location: examples/single_service_account
+  interfaces:
+    variables:
+      - name: org_id
+        description: Organization ID where the Cloud Function will have access to create Service Account keys.
+        varType: string
+        defaultValue: ""
+      - name: folder_ids
+        description: Folder IDs where the Cloud Function will have access to create Service Account keys.
+        varType: list(any)
+        defaultValue: []
+      - name: project_ids
+        description: Project IDs where the Cloud Function will have access to create Service Account keys.
+        varType: list(any)
+        defaultValue: []
+      - name: project_id
+        description: Project Id for the Cloud Function. Also if folder_ids and project_ids are empty, the Cloud Function will be granted access to create keys in this project by default.
+        varType: string
+        required: true
+      - name: region
+        description: The region where the Cloud Function will run
+        varType: string
+        defaultValue: us-central1
+      - name: function_name
+        description: Name of the Cloud Function
+        varType: string
+        defaultValue: key-distributor
+      - name: public_key_file
+        description: Path of the ascii armored gpg public key. Create by running `gpg --export --armor <key-id> > pubkey.asc`
+        varType: string
+        defaultValue: pubkey.asc
+      - name: function_members
+        description: List of IAM members (users, groups, etc) with the invoker permission on the CLoud Function
+        varType: list(string)
+        required: true
+    outputs:
+      - name: function_name
+        description: The name for the Cloud Function.
+      - name: project_id
+        description: The project id for the Cloud Function.
+      - name: region
+        description: The region for the Cloud Function
+  requirements:
     roles:
-    - roles/resourcemanager.projectIamAdmin
-    - roles/iam.serviceAccountAdmin
-    - roles/iam.serviceAccountUser
-    - roles/iam.serviceAccountKeyAdmin
-    - roles/storage.admin
-    - roles/cloudfunctions.admin
-    - roles/serviceusage.serviceUsageAdmin
-  services:
-  - cloudresourcemanager.googleapis.com
-  - iam.googleapis.com
-  - serviceusage.googleapis.com
-  - cloudfunctions.googleapis.com
-  - cloudbuild.googleapis.com
+      - level: Project
+        roles:
+          - roles/resourcemanager.projectIamAdmin
+          - roles/iam.serviceAccountAdmin
+          - roles/iam.serviceAccountUser
+          - roles/iam.serviceAccountKeyAdmin
+          - roles/storage.admin
+          - roles/cloudfunctions.admin
+          - roles/serviceusage.serviceUsageAdmin
+    services:
+      - cloudresourcemanager.googleapis.com
+      - iam.googleapis.com
+      - serviceusage.googleapis.com
+      - cloudfunctions.googleapis.com
+      - cloudbuild.googleapis.com
+    providerVersions:
+      - source: hashicorp/archive
+        version: ">= 2.2"
+      - source: hashicorp/google
+        version: ">= 3.53, < 7"
+      - source: hashicorp/local
+        version: ">= 2.2"
