@@ -42,22 +42,22 @@ spec:
         location: examples/single_service_account
   interfaces:
     variables:
-      - name: description
-        description: Default description of the created service accounts (defaults to no description)
-        varType: string
-        defaultValue: ""
-      - name: display_name
-        description: Display name of the created service accounts (defaults to 'Terraform-managed service account')
-        varType: string
-        defaultValue: Terraform-managed service account
-      - name: name
-        description: Name of service account
-        varType: string
-        required: true
       - name: project_id
         description: Project id where service account will be created
         varType: string
         required: true
+      - name: name
+        description: Name of service account
+        varType: string
+        required: true
+      - name: display_name
+        description: Display name of the created service accounts (defaults to 'Terraform-managed service account')
+        varType: string
+        defaultValue: Terraform-managed service account
+      - name: description
+        description: Default description of the created service accounts (defaults to no description)
+        varType: string
+        defaultValue: ""
       - name: project_roles
         description: Roles to grant the SA in specified project
         varType: list(string)
@@ -101,3 +101,6 @@ spec:
       - serviceusage.googleapis.com
       - cloudfunctions.googleapis.com
       - cloudbuild.googleapis.com
+    providerVersions:
+      - source: hashicorp/google
+        version: ">= 3.53, < 7"

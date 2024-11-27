@@ -1,4 +1,4 @@
-# Copyright 2022 Google LLC
+# Copyright 2024 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,120 +19,121 @@ metadata:
   annotations:
     config.kubernetes.io/local-config: "true"
 spec:
-  title: Terraform Service Accounts Module
-  source:
-    repo: https://github.com/terraform-google-modules/terraform-google-service-accounts
-    sourceType: git
-  version: 4.4.1
-  actuationTool:
-    type: Terraform
-    version: '>= 0.13'
-  subBlueprints:
-  - name: key-distributor
-    location: modules/key-distributor
-  examples:
-  - name: key_distributor
-    location: examples/key_distributor
-  - name: multiple_service_accounts
-    location: examples/multiple_service_accounts
-  - name: single_service_account
-    location: examples/single_service_account
-  variables:
-  - name: billing_account_id
-    description: If assigning billing role, specificy a billing account (default is to assign at the organizational level).
-    type: string
-    default: ""
-    required: false
-  - name: description
-    description: Default description of the created service accounts (defaults to no description)
-    type: string
-    default: ""
-    required: false
-  - name: descriptions
-    description: List of descriptions for the created service accounts (elements default to the value of `description`)
-    type: list(string)
-    default: []
-    required: false
-  - name: display_name
-    description: Display names of the created service accounts (defaults to 'Terraform-managed service account')
-    type: string
-    default: Terraform-managed service account
-    required: false
-  - name: generate_keys
-    description: Generate keys for service accounts.
-    type: bool
-    default: false
-    required: false
-  - name: grant_billing_role
-    description: Grant billing user role.
-    type: bool
-    default: false
-    required: false
-  - name: grant_xpn_roles
-    description: Grant roles for shared VPC management.
-    type: bool
-    default: true
-    required: false
-  - name: names
-    description: Names of the service accounts to create.
-    type: list(string)
-    default: []
-    required: false
-  - name: org_id
-    description: Id of the organization for org-level roles.
-    type: string
-    default: ""
-    required: false
-  - name: prefix
-    description: Prefix applied to service account names.
-    type: string
-    default: ""
-    required: false
-  - name: project_id
-    description: Project id where service account will be created.
-    type: string
-    required: true
-  - name: project_roles
-    description: Common roles to apply to all service accounts, project=>role as elements.
-    type: list(string)
-    default: []
-    required: false
-  outputs:
-  - name: email
-    description: Service account email (for single use).
-  - name: emails
-    description: Service account emails by name.
-  - name: emails_list
-    description: Service account emails as list.
-  - name: iam_email
-    description: IAM-format service account email (for single use).
-  - name: iam_emails
-    description: IAM-format service account emails by name.
-  - name: iam_emails_list
-    description: IAM-format service account emails as list.
-  - name: key
-    description: Service account key (for single use).
-  - name: keys
-    description: Map of service account keys.
-  - name: service_account
-    description: Service account resource (for single use).
-  - name: service_accounts
-    description: Service account resources as list.
-  - name: service_accounts_map
-    description: Service account resources by name.
-  roles:
-  - level: Project
+  info:
+    title: Terraform Service Accounts Module
+    source:
+      repo: https://github.com/terraform-google-modules/terraform-google-service-accounts.git
+      sourceType: git
+    version: 4.4.0
+    actuationTool:
+      flavor: Terraform
+      version: ">= 0.13"
+    description: {}
+  content:
+    subBlueprints:
+      - name: key-distributor
+        location: modules/key-distributor
+      - name: simple-sa
+        location: modules/simple-sa
+    examples:
+      - name: key_distributor
+        location: examples/key_distributor
+      - name: multiple_service_accounts
+        location: examples/multiple_service_accounts
+      - name: simple_sa
+        location: examples/simple_sa
+      - name: single_service_account
+        location: examples/single_service_account
+  interfaces:
+    variables:
+      - name: project_id
+        description: Project id where service account will be created.
+        varType: string
+        required: true
+      - name: prefix
+        description: Prefix applied to service account names.
+        varType: string
+        defaultValue: ""
+      - name: names
+        description: Names of the service accounts to create.
+        varType: list(string)
+        defaultValue: []
+      - name: project_roles
+        description: Common roles to apply to all service accounts, project=>role as elements.
+        varType: list(string)
+        defaultValue: []
+      - name: grant_billing_role
+        description: Grant billing user role.
+        varType: bool
+        defaultValue: false
+      - name: billing_account_id
+        description: If assigning billing role, specificy a billing account (default is to assign at the organizational level).
+        varType: string
+        defaultValue: ""
+      - name: grant_xpn_roles
+        description: Grant roles for shared VPC management.
+        varType: bool
+        defaultValue: true
+      - name: org_id
+        description: Id of the organization for org-level roles.
+        varType: string
+        defaultValue: ""
+      - name: generate_keys
+        description: Generate keys for service accounts.
+        varType: bool
+        defaultValue: false
+      - name: display_name
+        description: Display names of the created service accounts (defaults to 'Terraform-managed service account')
+        varType: string
+        defaultValue: Terraform-managed service account
+      - name: description
+        description: Default description of the created service accounts (defaults to no description)
+        varType: string
+        defaultValue: ""
+      - name: descriptions
+        description: List of descriptions for the created service accounts (elements default to the value of `description`)
+        varType: list(string)
+        defaultValue: []
+    outputs:
+      - name: email
+        description: Service account email (for single use).
+      - name: emails
+        description: Service account emails by name.
+      - name: emails_list
+        description: Service account emails as list.
+      - name: iam_email
+        description: IAM-format service account email (for single use).
+      - name: iam_emails
+        description: IAM-format service account emails by name.
+      - name: iam_emails_list
+        description: IAM-format service account emails as list.
+      - name: key
+        description: Service account key (for single use).
+      - name: keys
+        description: Map of service account keys.
+      - name: service_account
+        description: Service account resource (for single use).
+      - name: service_accounts
+        description: Service account resources as list.
+      - name: service_accounts_map
+        description: Service account resources by name.
+  requirements:
     roles:
-    - roles/resourcemanager.projectIamAdmin
-    - roles/iam.serviceAccountAdmin
-    - roles/iam.serviceAccountUser
-    - roles/iam.serviceAccountKeyAdmin
-    - roles/storage.admin
-    - roles/cloudfunctions.admin
-    - roles/serviceusage.serviceUsageAdmin
-  services:
-  - cloudresourcemanager.googleapis.com
-  - iam.googleapis.com
-  - serviceusage.googleapis.com
-  - cloudfunctions.googleapis.com
-  - cloudbuild.googleapis.com
+      - level: Project
+        roles:
+          - roles/resourcemanager.projectIamAdmin
+          - roles/iam.serviceAccountAdmin
+          - roles/iam.serviceAccountUser
+          - roles/iam.serviceAccountKeyAdmin
+          - roles/storage.admin
+          - roles/cloudfunctions.admin
+          - roles/serviceusage.serviceUsageAdmin
+    services:
+      - cloudresourcemanager.googleapis.com
+      - iam.googleapis.com
+      - serviceusage.googleapis.com
+      - cloudfunctions.googleapis.com
+      - cloudbuild.googleapis.com
+    providerVersions:
+      - source: hashicorp/google
+        version: ">= 3.53, < 7"
