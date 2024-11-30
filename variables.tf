@@ -67,6 +67,12 @@ variable "generate_keys" {
   default     = false
 }
 
+variable "disabled" {
+  type        = bool
+  description = "Whether a service account is disabled or not. Defaults to false. This field has no effect during creation. Must be set after creation to disable a service account."
+  default     = false
+}
+
 variable "display_name" {
   type        = string
   description = "Display names of the created service accounts (defaults to 'Terraform-managed service account')"
