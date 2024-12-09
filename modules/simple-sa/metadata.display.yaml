@@ -31,11 +31,11 @@ spec:
         description:
           name: description
           title: Description
-          invisible: false
+          level: 1
         display_name:
           name: display_name
           title: Display Name
-          invisible: false
+          level: 1
         name:
           name: name
           title: Name
