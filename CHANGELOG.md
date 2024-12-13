@@ -7,6 +7,13 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.4.3](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.4.2...v4.4.3) (2024-12-13)
+
+
+### Bug Fixes
+
+* update display metadata for simple-sa module ([#141](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/141)) ([fa6c691](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/fa6c691008b41ae34b785607d28501615f4400e8))
+
 ## [4.4.2](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.4.1...v4.4.2) (2024-11-27)
 
 
