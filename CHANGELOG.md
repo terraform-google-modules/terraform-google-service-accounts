@@ -7,6 +7,13 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.4.4](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.4.3...v4.4.4) (2025-01-22)
+
+
+### Bug Fixes
+
+* add connection metadata for adding project_roles automatically ([#147](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/147)) ([854ba80](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/854ba805a3bfad150c163335b5ea3b430224f132))
+
 ## [4.4.3](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.4.2...v4.4.3) (2024-12-13)
 
 
