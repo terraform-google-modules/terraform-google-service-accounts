@@ -90,3 +90,9 @@ variable "disabled" {
   description = "A map of service account names to a boolean value indicating whether the service account should be disabled. Service accounts not in this map will be enabled by default."
   default     = {}
 }
+
+variable "key_rotation_days" {
+  type        = number
+  description = "Number of days after which the service account key is rotated"
+  default     = null
+}
