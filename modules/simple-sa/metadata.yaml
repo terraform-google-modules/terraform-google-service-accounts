@@ -1,4 +1,4 @@
-# Copyright 2024 Google LLC
+# Copyright 2025 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -61,7 +61,7 @@ spec:
       - name: project_roles
         description: Roles to grant the SA in specified project
         varType: list(string)
-        required: true
+        defaultValue: []
         connections:
           - source:
               source: github.com/GoogleCloudPlatform/terraform-google-secret-manager//modules/simple-secret
