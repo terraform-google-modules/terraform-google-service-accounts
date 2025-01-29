@@ -7,6 +7,13 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.5.0](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.4.4...v4.5.0) (2025-01-24)
+
+
+### Features
+
+* support simple sa creation without any project level roles ([#149](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/149)) ([ba869e7](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/ba869e729901148950008f6946c61e391060505c))
+
 ## [4.4.4](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.4.3...v4.4.4) (2025-01-22)
 
 
