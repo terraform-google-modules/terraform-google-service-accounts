@@ -84,3 +84,9 @@ variable "descriptions" {
   description = "List of descriptions for the created service accounts (elements default to the value of `description`)"
   default     = []
 }
+
+variable "key_rotation_days" {
+  type        = number
+  description = "Number of days after which the service account key is rotated"
+  default     = null
+}
