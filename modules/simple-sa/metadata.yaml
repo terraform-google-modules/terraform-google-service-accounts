@@ -93,6 +93,11 @@ spec:
               version: ">= 17.1.0"
             spec:
               outputExpr: "[\"roles/aiplatform.user\"]"
+          - source:
+              source: github.com/terraform-google-modules/terraform-google-pubsub
+              version: ">= 7.0.0"
+            spec:
+              outputExpr: "[\"roles/pubsub.editor\"]"
     outputs:
       - name: account_details
         description: Service account id and email
