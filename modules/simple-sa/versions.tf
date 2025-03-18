@@ -25,6 +25,6 @@ terraform {
   }
 
   provider_meta "google" {
-    module_name = "blueprints/terraform/terraform-google-service-accounts:simple-sa/v4.5.0"
+    module_name = "blueprints/terraform/terraform-google-service-accounts:simple-sa/v4.5.1"
   }
 }
