@@ -98,6 +98,11 @@ spec:
               version: ">= 7.0.0"
             spec:
               outputExpr: "[\"roles/pubsub.editor\"]"
+          - source:
+              source: github.com/terraform-google-modules/terraform-google-bigquery
+              version: ">= 10.0"
+            spec:
+              outputExpr: "[\"roles/bigquery.dataEditor\"]"
     outputs:
       - name: account_details
         description: Service account id and email
