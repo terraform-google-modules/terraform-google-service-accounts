@@ -7,6 +7,13 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.5.1](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.5.0...v4.5.1) (2025-03-18)
+
+
+### Bug Fixes
+
+* udpate metadata to add role when connecting to bigquery ([#154](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/154)) ([2d7d5f6](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/2d7d5f632821f9cc2f059c127ed8e6354c5dad05))
+
 ## [4.5.0](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.4.4...v4.5.0) (2025-01-24)
 
 
