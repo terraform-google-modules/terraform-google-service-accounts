@@ -103,6 +103,11 @@ spec:
               version: ">= 10.0"
             spec:
               outputExpr: "[\"roles/bigquery.dataEditor\"]"
+          - source:
+              source: github.com/terraform-google-modules/terraform-google-cloud-storage//modules/simple_bucket
+              version: ">= 0.10.1"
+            spec:
+              outputExpr: "[\"roles/storage.objectAdmin\"]"    
     outputs:
       - name: account_details
         description: Service account id and email
