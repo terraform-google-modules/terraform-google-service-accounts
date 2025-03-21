@@ -67,6 +67,12 @@ variable "generate_keys" {
   default     = false
 }
 
+variable "create_ignore_already_exists" {
+  type        = bool
+  description = "Whether to ignore errors when creating resources that already exist"
+  default     = false
+}
+
 variable "display_name" {
   type        = string
   description = "Display names of the created service accounts (defaults to 'Terraform-managed service account')"
