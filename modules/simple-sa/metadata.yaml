@@ -107,7 +107,7 @@ spec:
               source: github.com/terraform-google-modules/terraform-google-dataflow//modules/flex
               version: ">= 3.0.1"
             spec:
-              outputExpr: "[\"roles/dataflow.developer\"]"
+              outputExpr: "[\"roles/dataflow.worker\",\"roles/dataflow.developer\"]"
     outputs:
       - name: account_details
         description: Service account id and email
