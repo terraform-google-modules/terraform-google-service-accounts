@@ -7,6 +7,13 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.5.2](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.5.1...v4.5.2) (2025-03-26)
+
+
+### Bug Fixes
+
+* Add dataflow connection in service account for dataflow developer role ([#156](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/156)) ([ccc88bc](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/ccc88bc8ae359b18fee8623cd60d8de1683c3efa))
+
 ## [4.5.1](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.5.0...v4.5.1) (2025-03-18)
 
 
