@@ -33,7 +33,7 @@ terraform {
   }
 
   provider_meta "google" {
-    module_name = "blueprints/terraform/terraform-google-service-accounts:key-distributor/v4.5.2"
+    module_name = "blueprints/terraform/terraform-google-service-accounts:key-distributor/v4.5.3"
   }
 
 }

@@ -7,6 +7,13 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.5.3](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.5.2...v4.5.3) (2025-03-27)
+
+
+### Bug Fixes
+
+* Fix typo in objct admin role ([#158](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/158)) ([3e867ef](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/3e867ef7fcbc69ea9440e1897e1e52ad802f8c17))
+
 ## [4.5.2](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.5.1...v4.5.2) (2025-03-26)
 
 
