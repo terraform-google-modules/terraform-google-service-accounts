@@ -61,7 +61,6 @@ Functional examples are included in the
 
 | Name | Description |
 |------|-------------|
-| display\_names | display names variable. |
 | email | Service account email (for single use). |
 | emails | Service account emails by name. |
 | emails\_list | Service account emails as list. |
