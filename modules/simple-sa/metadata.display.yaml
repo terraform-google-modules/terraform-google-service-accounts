@@ -39,6 +39,8 @@ spec:
         name:
           name: name
           title: Name
+          regexValidation: ^[a-z][a-z0-9-]{4,28}[a-z0-9]$
+          validation: Must be unique within a project, must be 6-30 characters long, must contain alphanumeric character and dash, must start with lowercase character end with lowercase character or number.
         project_id:
           name: project_id
           title: Project Id
