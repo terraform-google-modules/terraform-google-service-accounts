@@ -39,6 +39,8 @@ spec:
         name:
           name: name
           title: Name
+          regexValidation: ^[a-z][a-z0-9-]{4,28}[a-z0-9]$
+          validation: Name must be 6–30 characters, start with a lowercase letter, and contain only lowercase letters, numbers, or hyphens. It must end with a lowercase letter or number.
         project_id:
           name: project_id
           title: Project Id
