@@ -73,6 +73,12 @@ variable "display_name" {
   default     = "Terraform-managed service account"
 }
 
+variable "display_names" {
+  type        = list(string)
+  description = "List of display_names for the created service accounts (elements default to the value of `display_name`)"
+  default     = []
+}
+
 variable "description" {
   type        = string
   description = "Default description of the created service accounts (defaults to no description)"
