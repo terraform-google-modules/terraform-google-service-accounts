@@ -28,7 +28,7 @@ spec:
     version: 4.5.4
     actuationTool:
       flavor: Terraform
-      version: ">= 0.13"
+      version: ">= 1.3"
     description: {}
   content:
     examples:
@@ -85,10 +85,10 @@ spec:
     roles:
       - level: Project
         roles:
+          - roles/iam.serviceAccountKeyAdmin
           - roles/iam.serviceAccountUser
           - roles/secretmanager.secretAdmin
           - roles/logging.logWriter
-          - roles/iam.serviceAccountKeyAdmin
     services:
       - iam.googleapis.com
       - secretmanager.googleapis.com
