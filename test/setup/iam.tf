@@ -31,6 +31,7 @@ locals {
     root = [
       "roles/resourcemanager.projectIamAdmin",
       "roles/serviceusage.serviceUsageAdmin",
+      "roles/secretmanager.secretAdmin",
       "roles/iam.serviceAccountAdmin",
       "roles/iam.serviceAccountUser",
     ]
@@ -38,6 +39,7 @@ locals {
 
   int_required_roles = concat([
     "roles/storage.admin",
+    "roles/secretmanager.secretAdmin",
     "roles/cloudfunctions.admin",
   ], flatten(values(local.per_module_roles)))
 }

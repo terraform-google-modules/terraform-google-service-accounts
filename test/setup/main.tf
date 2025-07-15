@@ -45,6 +45,7 @@ module "project" {
   billing_account   = var.billing_account
 
   activate_apis = concat([
+    "secretmanager.googleapis.com",
     "cloudfunctions.googleapis.com",
     "cloudbuild.googleapis.com",
   ], flatten(values(local.per_module_services)))

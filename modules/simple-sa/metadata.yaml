@@ -134,9 +134,9 @@ spec:
     roles:
       - level: Project
         roles:
+          - roles/logging.logWriter
           - roles/iam.serviceAccountAdmin
           - roles/iam.serviceAccountUser
-          - roles/logging.logWriter
     services:
       - iam.googleapis.com
       - serviceusage.googleapis.com
