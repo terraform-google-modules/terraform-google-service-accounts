@@ -15,15 +15,31 @@
  */
 
 locals {
-  int_required_roles = [
-    "roles/resourcemanager.projectIamAdmin",
-    "roles/iam.serviceAccountAdmin",
-    "roles/iam.serviceAccountUser",
-    "roles/iam.serviceAccountKeyAdmin",
+
+  per_module_roles = {
+    key-distributor = [
+      "roles/iam.serviceAccountKeyAdmin",
+      "roles/iam.serviceAccountUser",
+      "roles/secretmanager.secretAdmin",
+      "roles/logging.logWriter",
+    ]
+    simple-sa = [
+      "roles/iam.serviceAccountAdmin",
+      "roles/iam.serviceAccountUser",
+      "roles/logging.logWriter",
+    ]
+    root = [
+      "roles/resourcemanager.projectIamAdmin",
+      "roles/serviceusage.serviceUsageAdmin",
+      "roles/iam.serviceAccountAdmin",
+      "roles/iam.serviceAccountUser",
+    ]
+  }
+
+  int_required_roles = concat([
     "roles/storage.admin",
     "roles/cloudfunctions.admin",
-    "roles/serviceusage.serviceUsageAdmin",
-  ]
+  ], flatten(values(local.per_module_roles)))
 }
 
 resource "google_service_account" "int_test" {

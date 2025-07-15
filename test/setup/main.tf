@@ -14,6 +14,26 @@
  * limitations under the License.
  */
 
+locals {
+  per_module_services = {
+    key-distributor = [
+      "iam.googleapis.com",
+      "secretmanager.googleapis.com",
+      "serviceusage.googleapis.com",
+    ]
+    simple-sa = [
+      "iam.googleapis.com",
+      "serviceusage.googleapis.com",
+    ]
+    root = [
+      "iam.googleapis.com",
+      "secretmanager.googleapis.com",
+      "serviceusage.googleapis.com",
+      "cloudresourcemanager.googleapis.com",
+    ]
+  }
+}
+
 module "project" {
   source  = "terraform-google-modules/project-factory/google"
   version = "~> 18.0"
@@ -24,11 +44,8 @@ module "project" {
   folder_id         = var.folder_id
   billing_account   = var.billing_account
 
-  activate_apis = [
-    "cloudresourcemanager.googleapis.com",
-    "iam.googleapis.com",
-    "serviceusage.googleapis.com",
+  activate_apis = concat([
     "cloudfunctions.googleapis.com",
     "cloudbuild.googleapis.com",
-  ]
+  ], flatten(values(local.per_module_services)))
 }

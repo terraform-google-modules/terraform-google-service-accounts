@@ -134,19 +134,12 @@ spec:
     roles:
       - level: Project
         roles:
-          - roles/resourcemanager.projectIamAdmin
+          - roles/logging.logWriter
           - roles/iam.serviceAccountAdmin
           - roles/iam.serviceAccountUser
-          - roles/iam.serviceAccountKeyAdmin
-          - roles/storage.admin
-          - roles/cloudfunctions.admin
-          - roles/serviceusage.serviceUsageAdmin
     services:
-      - cloudresourcemanager.googleapis.com
       - iam.googleapis.com
       - serviceusage.googleapis.com
-      - cloudfunctions.googleapis.com
-      - cloudbuild.googleapis.com
     providerVersions:
       - source: hashicorp/google
         version: ">= 3.53, < 7"
