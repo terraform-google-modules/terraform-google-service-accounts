@@ -87,7 +87,6 @@ spec:
         roles:
           - roles/iam.serviceAccountKeyAdmin
           - roles/iam.serviceAccountUser
-          - roles/secretmanager.secretAdmin
           - roles/logging.logWriter
     services:
       - iam.googleapis.com
