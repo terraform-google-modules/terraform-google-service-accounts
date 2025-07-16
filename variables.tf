@@ -84,3 +84,9 @@ variable "descriptions" {
   description = "List of descriptions for the created service accounts (elements default to the value of `description`)"
   default     = []
 }
+
+variable "disabled" {
+  type        = bool
+  description = "The disabled status of the service accounts. Defaults to false."
+  default     = false
+}
