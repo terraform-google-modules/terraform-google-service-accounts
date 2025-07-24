@@ -40,7 +40,7 @@ resource "google_service_account" "service_accounts" {
   display_name = var.display_name
   description  = index(var.names, each.value) >= length(var.descriptions) ? var.description : element(var.descriptions, index(var.names, each.value))
   project      = var.project_id
-  disabled     = var.disabled
+  disabled     = lookup(var.disabled, each.value, false)
 }
 
 # common roles

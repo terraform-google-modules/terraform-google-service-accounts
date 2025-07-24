@@ -86,7 +86,7 @@ variable "descriptions" {
 }
 
 variable "disabled" {
-  type        = bool
-  description = "The disabled status of the service accounts. Defaults to false."
-  default     = false
+  type        = map(bool)
+  description = "A map of service account names to a boolean value indicating whether the service account should be disabled. Service accounts not in this map will be enabled by default."
+  default     = {}
 }
