@@ -84,3 +84,9 @@ variable "descriptions" {
   description = "List of descriptions for the created service accounts (elements default to the value of `description`)"
   default     = []
 }
+
+variable "disabled" {
+  type        = map(bool)
+  description = "A map of service account names to a boolean value indicating whether the service account should be disabled. Service accounts not in this map will be enabled by default."
+  default     = {}
+}
