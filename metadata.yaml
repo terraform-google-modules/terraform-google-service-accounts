@@ -121,10 +121,10 @@ spec:
     roles:
       - level: Project
         roles:
+          - roles/iam.serviceAccountUser
           - roles/resourcemanager.projectIamAdmin
           - roles/serviceusage.serviceUsageAdmin
           - roles/iam.serviceAccountAdmin
-          - roles/iam.serviceAccountUser
     services:
       - cloudresourcemanager.googleapis.com
       - iam.googleapis.com

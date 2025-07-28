@@ -24,6 +24,7 @@ locals {
     simple-sa = [
       "iam.googleapis.com",
       "serviceusage.googleapis.com",
+      "cloudresourcemanager.googleapis.com",
     ]
     root = [
       "iam.googleapis.com",

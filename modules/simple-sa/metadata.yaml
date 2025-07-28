@@ -134,10 +134,12 @@ spec:
     roles:
       - level: Project
         roles:
+          - roles/resourcemanager.projectIamAdmin
           - roles/iam.serviceAccountAdmin
           - roles/iam.serviceAccountUser
           - roles/logging.logWriter
     services:
+      - cloudresourcemanager.googleapis.com
       - iam.googleapis.com
       - serviceusage.googleapis.com
     providerVersions:

@@ -23,6 +23,7 @@ locals {
       "roles/logging.logWriter",
     ]
     simple-sa = [
+      "roles/resourcemanager.projectIamAdmin",
       "roles/iam.serviceAccountAdmin",
       "roles/iam.serviceAccountUser",
       "roles/logging.logWriter",
