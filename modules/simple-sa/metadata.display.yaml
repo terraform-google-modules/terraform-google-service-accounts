@@ -55,5 +55,5 @@ spec:
             value:
               name: value
               title: Role
-              regexValidation: "^(roles\/[a-zA-Z_][a-zA-Z0-9_.]+|(projects|organizations)\/[a-z][a-z0-9\\-]{4,28}[a-z0-9]\/roles\/[a-zA-Z_][a-zA-Z0-9_]+)$"
+              regexValidation: "^(roles\/[a-zA-Z_][a-zA-Z0-9_.]+|(projects|organizations)\/[a-z][a-z0-9-]{4,28}[a-z0-9]\/roles\/[a-zA-Z_][a-zA-Z0-9_]+)$"
               validation: Role must be a valid Google Cloud IAM role name, in the format of 'roles/{role_name}'.
