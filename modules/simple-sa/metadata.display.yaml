@@ -46,8 +46,6 @@ spec:
         project_id:
           name: project_id
           title: Project Id
-          regexValidation: ^[a-z][a-z0-9-]{4,28}[a-z0-9]$
-          validation: Project ID must be 6-30 characters, start with a lowercase letter, and can contain lowercase letters, numbers, and hyphens.
         project_roles:
           name: project_roles
           title: Project Roles
