@@ -48,6 +48,7 @@ Functional examples are included in the
 | descriptions | List of descriptions for the created service accounts (elements default to the value of `description`) | `list(string)` | `[]` | no |
 | disabled | A map of service account names to a boolean value indicating whether the service account should be disabled. Service accounts not in this map will be enabled by default. | `map(bool)` | `{}` | no |
 | display\_name | Display names of the created service accounts (defaults to 'Terraform-managed service account') | `string` | `"Terraform-managed service account"` | no |
+| display\_names | List of display\_names for the created service accounts (elements default to the value of `display_name`) | `list(string)` | `[]` | no |
 | generate\_keys | Generate keys for service accounts. | `bool` | `false` | no |
 | grant\_billing\_role | Grant billing user role. | `bool` | `false` | no |
 | grant\_xpn\_roles | Grant roles for shared VPC management. | `bool` | `true` | no |
