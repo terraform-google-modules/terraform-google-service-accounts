@@ -94,6 +94,10 @@ spec:
         description: List of descriptions for the created service accounts (elements default to the value of `description`)
         varType: list(string)
         defaultValue: []
+      - name: disabled
+        description: A map of service account names to a boolean value indicating whether the service account should be disabled. Service accounts not in this map will be enabled by default.
+        varType: map(bool)
+        defaultValue: {}
     outputs:
       - name: email
         description: Service account email (for single use).
@@ -101,6 +105,8 @@ spec:
         description: Service account emails by name.
       - name: emails_list
         description: Service account emails as list.
+      - name: disabled
+        description: The disabled status of the service accounts.
       - name: iam_email
         description: IAM-format service account email (for single use).
       - name: iam_emails
