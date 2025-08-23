@@ -22,6 +22,10 @@ terraform {
       source  = "hashicorp/google"
       version = ">= 3.53, < 7"
     }
+    time = {
+      source  = "hashicorp/time"
+      version = "~> 0.12"
+    }
   }
 
   provider_meta "google" {
