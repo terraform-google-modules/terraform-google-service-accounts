@@ -7,6 +7,14 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.6.0](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.5.4...v4.6.0) (2025-08-23)
+
+
+### Features
+
+* Add disabled flag ([#168](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/168)) ([4cc94c8](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/4cc94c89fce272826c6ba3ccdba223db4d5bc713))
+* per module requirements to service accounts ([#167](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/167)) ([9ba28a5](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/9ba28a549f36a57a8b8e4714a29311703d6dba5d))
+
 ## [4.5.4](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.5.3...v4.5.4) (2025-05-23)
 
 
