@@ -49,5 +49,5 @@ spec:
         project_roles:
           name: project_roles
           title: Project Roles
-          regexValidation: "^(roles\\/[a-zA-Z0-9_\\.]+|(projects\\/[a-z][a-z0-9\\-]{4,28}[a-z0-9]|organizations\\/[0-9]+)\\/roles\\/[a-zA-Z0-9_]+)$"
+          regexValidation: "^(roles/[a-zA-Z0-9_.]+|(projects/[a-z][a-z0-9-]{4,28}[a-z0-9]|organizations/[0-9]+)/roles/[a-zA-Z0-9_]+)$"
           validation: Role must be a valid Google Cloud IAM role name, in the format of 'roles/{role_name}'.
