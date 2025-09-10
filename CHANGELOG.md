@@ -7,6 +7,13 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.5.4](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.5.3...v4.5.4) (2025-05-23)
+
+
+### Bug Fixes
+
+* Adding regex validation for name ([#164](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/164)) ([70410b7](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/70410b7869cc13aed3566ebcc2eacbe3eb87b70d))
+
 ## [4.5.3](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.5.2...v4.5.3) (2025-03-27)
 
 

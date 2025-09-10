@@ -36,12 +36,18 @@ spec:
           name: display_name
           title: Display Name
           level: 1
+          regexValidation: ^.{1,100}$
+          validation: Display name must be between 1 and 100 characters.
         name:
           name: name
           title: Name
+          regexValidation: ^[a-z][a-z0-9-]{4,28}[a-z0-9]$
+          validation: Name must be 6–30 characters, start with a lowercase letter, and contain only lowercase letters, numbers, or hyphens. It must end with a lowercase letter or number.
         project_id:
           name: project_id
           title: Project Id
         project_roles:
           name: project_roles
           title: Project Roles
+          regexValidation: "^(roles/[a-zA-Z0-9_.]+|(projects/[a-z][a-z0-9-]{4,28}[a-z0-9]|organizations/[0-9]+)/roles/[a-zA-Z0-9_]+)$"
+          validation: Role must be a valid Google Cloud IAM role name, in the format of 'roles/{role_name}'.

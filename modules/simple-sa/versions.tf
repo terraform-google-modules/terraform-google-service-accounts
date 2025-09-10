@@ -15,16 +15,16 @@
  */
 
 terraform {
-  required_version = ">= 0.13.0"
+  required_version = ">= 1.3"
 
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = ">= 3.53, < 7"
+      version = ">= 3.53, < 8"
     }
   }
 
   provider_meta "google" {
-    module_name = "blueprints/terraform/terraform-google-service-accounts:simple-sa/v4.5.3"
+    module_name = "blueprints/terraform/terraform-google-service-accounts:simple-sa/v4.5.4"
   }
 }

@@ -46,6 +46,7 @@ Functional examples are included in the
 | billing\_account\_id | If assigning billing role, specificy a billing account (default is to assign at the organizational level). | `string` | `""` | no |
 | description | Default description of the created service accounts (defaults to no description) | `string` | `""` | no |
 | descriptions | List of descriptions for the created service accounts (elements default to the value of `description`) | `list(string)` | `[]` | no |
+| disabled | A map of service account names to a boolean value indicating whether the service account should be disabled. Service accounts not in this map will be enabled by default. | `map(bool)` | `{}` | no |
 | display\_name | Display names of the created service accounts (defaults to 'Terraform-managed service account') | `string` | `"Terraform-managed service account"` | no |
 | display\_names | List of display\_names for the created service accounts (elements default to the value of `display_name`) | `list(string)` | `[]` | no |
 | generate\_keys | Generate keys for service accounts. | `bool` | `false` | no |
@@ -61,6 +62,7 @@ Functional examples are included in the
 
 | Name | Description |
 |------|-------------|
+| disabled | The disabled status of the service accounts. |
 | email | Service account email (for single use). |
 | emails | Service account emails by name. |
 | emails\_list | Service account emails as list. |

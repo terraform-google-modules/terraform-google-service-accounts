@@ -70,3 +70,8 @@ output "keys" {
   sensitive   = true
   value       = { for k, v in local.names : k => var.generate_keys ? base64decode(google_service_account_key.keys[v].private_key) : "" }
 }
+
+output "disabled" {
+  description = "The disabled status of the service accounts."
+  value       = { for k, v in google_service_account.service_accounts : k => v.disabled }
+}

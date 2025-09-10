@@ -24,10 +24,10 @@ spec:
     source:
       repo: https://github.com/terraform-google-modules/terraform-google-service-accounts.git
       sourceType: git
-    version: 4.5.3
+    version: 4.5.4
     actuationTool:
       flavor: Terraform
-      version: ">= 0.13"
+      version: ">= 1.3"
     description: {}
   content:
     subBlueprints:
@@ -94,6 +94,10 @@ spec:
         description: List of descriptions for the created service accounts (elements default to the value of `description`)
         varType: list(string)
         defaultValue: []
+      - name: disabled
+        description: A map of service account names to a boolean value indicating whether the service account should be disabled. Service accounts not in this map will be enabled by default.
+        varType: map(bool)
+        defaultValue: {}
     outputs:
       - name: email
         description: Service account email (for single use).
@@ -101,6 +105,8 @@ spec:
         description: Service account emails by name.
       - name: emails_list
         description: Service account emails as list.
+      - name: disabled
+        description: The disabled status of the service accounts.
       - name: iam_email
         description: IAM-format service account email (for single use).
       - name: iam_emails
@@ -121,19 +127,15 @@ spec:
     roles:
       - level: Project
         roles:
-          - roles/resourcemanager.projectIamAdmin
-          - roles/iam.serviceAccountAdmin
           - roles/iam.serviceAccountUser
-          - roles/iam.serviceAccountKeyAdmin
-          - roles/storage.admin
-          - roles/cloudfunctions.admin
+          - roles/resourcemanager.projectIamAdmin
           - roles/serviceusage.serviceUsageAdmin
+          - roles/iam.serviceAccountAdmin
     services:
       - cloudresourcemanager.googleapis.com
       - iam.googleapis.com
+      - secretmanager.googleapis.com
       - serviceusage.googleapis.com
-      - cloudfunctions.googleapis.com
-      - cloudbuild.googleapis.com
     providerVersions:
       - source: hashicorp/google
         version: ">= 3.53, < 7"
