@@ -7,6 +7,22 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.6.0](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.5.4...v4.6.0) (2025-09-10)
+
+
+### Features
+
+* Add disabled flag ([#168](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/168)) ([4cc94c8](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/4cc94c89fce272826c6ba3ccdba223db4d5bc713))
+* **deps:** Update Terraform google to v7 ([#175](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/175)) ([2de45e4](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/2de45e4adf40ec04a2df1844720e3b5666698df9))
+* per module requirements to service accounts ([#167](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/167)) ([9ba28a5](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/9ba28a549f36a57a8b8e4714a29311703d6dba5d))
+
+
+### Bug Fixes
+
+* **deps:** bump golang.org/x/crypto from 0.31.0 to 0.35.0 ([#160](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/160)) ([7c1b8fa](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/7c1b8fa4839ac45478b0ac21c126afd1000a0efa))
+* **deps:** Update module golang.org/x/crypto to v0.41.0 ([#179](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/179)) ([19c3c89](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/19c3c892602b9bfd93c68f397763d8ef0de4fb66))
+* **deps:** Update module google.golang.org/api to v0.248.0 ([#170](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/170)) ([c3ddc88](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/c3ddc883c12d4a286f8d14b18c9c7864f1d41443))
+
 ## [4.5.4](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.5.3...v4.5.4) (2025-05-23)
 
 
