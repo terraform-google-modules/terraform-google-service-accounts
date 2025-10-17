@@ -32,16 +32,13 @@ func TestKeyDistributor(t *testing.T) {
 
 			email := bpt.GetStringOutput("email")
 
-			wd, _ := os.Getwd()
-			t.Logf("current dir: %q", wd)
-
-			cmd := exec.Command("./test/fixtures/key_distributor/get-key", email)
+			cmd := exec.Command("./../../fixtures/key_distributor/get-key", email)
 			var stdout strings.Builder
 			var stderr strings.Builder
 			cmd.Stdout = &stdout
 			cmd.Stderr = &stderr
 
-			assert.NotNil(cmd.Run())
+			assert.Nil(cmd.Run())
 
 			assert.Equal("", stderr.String())
 			assert.Regexp("^Success! Wrote encrypted key", stdout.String())
