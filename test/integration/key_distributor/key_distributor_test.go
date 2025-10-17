@@ -15,7 +15,6 @@
 package key_distributor_test
 
 import (
-	"os"
 	"os/exec"
 	"strings"
 	"testing"
