@@ -5,7 +5,7 @@ go 1.24.0
 toolchain go1.24.4
 
 require (
-	golang.org/x/crypto v0.41.0
+	golang.org/x/crypto v0.44.0
 	google.golang.org/api v0.249.0
 )
 
