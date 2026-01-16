@@ -25,7 +25,7 @@ spec:
       repo: https://github.com/terraform-google-modules/terraform-google-service-accounts.git
       sourceType: git
       dir: /modules/simple-sa
-    version: 4.6.0
+    version: 1.0.0
     actuationTool:
       flavor: Terraform
       version: ">= 1.3"
