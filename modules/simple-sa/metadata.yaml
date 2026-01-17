@@ -108,6 +108,11 @@ spec:
               version: ">= 3.0.1"
             spec:
               outputExpr: "[\"roles/dataflow.worker\",\"roles/dataflow.developer\", \"roles/storage.objectAdmin\"]"
+          - source:
+              source: github.com/GoogleCloudPlatform/terraform-google-artifact-registry
+              version: ">= 0.5.0"
+            spec:
+              outputExpr: "[\"roles/artifactregistry.writer\"]"
     outputs:
       - name: account_details
         description: Service account id and email
