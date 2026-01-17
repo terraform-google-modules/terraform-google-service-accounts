@@ -7,6 +7,13 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.7.0](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.6.0...v4.7.0) (2026-01-17)
+
+
+### Features
+
+* add connection to artifact-registry ([#191](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/191)) ([3643b53](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/3643b539db2173e1afab552f05128350b7ad9961))
+
 ## [4.6.0](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.5.4...v4.6.0) (2025-09-10)
 
 
