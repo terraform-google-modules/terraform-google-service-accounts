@@ -45,7 +45,7 @@ variable "grant_billing_role" {
 
 variable "billing_account_id" {
   type        = string
-  description = "If assigning billing role, specificy a billing account (default is to assign at the organizational level)."
+  description = "The ID of the billing account to which the billing user role will be assigned (By default, the role is assigned at the organizational level)."
   default     = ""
 }
 
