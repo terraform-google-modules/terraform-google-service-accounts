@@ -84,6 +84,16 @@ spec:
             spec:
               outputExpr: "[\"roles/redis.editor\"]"
           - source:
+              source: github.com/terraform-google-modules/terraform-google-memorystore//modules/valkey
+              version: ">= 12.0"
+            spec:
+              outputExpr: "[\"roles/memorystore.editor\"]"
+          - source:
+              source: github.com/terraform-google-modules/terraform-google-memorystore//modules/redis-cluster
+              version: ">= 12.0"
+            spec:
+              outputExpr: "[\"roles/redis.editor\"]"
+          - source:
               source: github.com/GoogleCloudPlatform/terraform-google-cloud-run//modules/v2
               version: ">= 0.13"
             spec:
