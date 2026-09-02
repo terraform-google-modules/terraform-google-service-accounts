@@ -11,11 +11,12 @@ The resources/services/activations/deletions that this module will create/trigge
 - one optional service account key per service account
 
 ## Compatibility
-This module is meant for use with Terraform 0.13+ and tested using Terraform 1.0+. If you find incompatibilities using Terraform >=0.13, please open an issue.
+This module is meant for use with Terraform 1.3+. If you find incompatibilities using Terraform >= 1.3, please open an issue.
  If you haven't
 [upgraded](https://www.terraform.io/upgrade-guides/0-13.html) and need a Terraform
 0.12.x-compatible version of this module, the last released version
-intended for Terraform 0.12.x is [v3.0.1](https://registry.terraform.io/modules/terraform-google-modules/-service-accounts/google/v3.0.1).
+intended for Terraform 0.12.x is [v3.0.1](https://registry.terraform.io/modules/terraform-google-modules/service-accounts/google/3.0.1).
+ If you haven't [upgraded](https://developer.hashicorp.com/terraform/language/v1.3.x/upgrade-guides) to Terraform 1.3 and need a Terraform 0.13.x-compatible version of this module, the last released version intended for Terraform 0.13.x is [v4.5.4](https://registry.terraform.io/modules/terraform-google-modules/service-accounts/google/4.5.4).
 
 ## Usage
 
@@ -84,7 +85,7 @@ These sections describe requirements for using this module.
 
 The following dependencies must be available:
 
-- [Terraform](https://www.terraform.io/downloads.html) >= 0.13.0
+- [Terraform](https://www.terraform.io/downloads.html) >= 1.3.0
 - [Terraform Provider for GCP][terraform-provider-gcp] plugin >= v2.0
 
 ### IAM
