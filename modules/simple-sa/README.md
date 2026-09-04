@@ -9,7 +9,7 @@ Basic usage of this submodule is as follows:
 ```hcl
 module "sa" {
   source  = "terraform-google-modules/service-accounts/google//modules/simple-sa"
-  version = "~> 4.7"
+  version = "~> 4.8"
 
   project_id    = "<PROJECT ID>"
   name          = "sa-name"
