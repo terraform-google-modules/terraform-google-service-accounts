@@ -7,6 +7,14 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.8.0](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.7.0...v4.8.0) (2026-09-04)
+
+
+### Features
+
+* add connection with dataproc-cluster ([#201](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/201)) ([509ad92](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/509ad92c0aa1144835475b7dc8a29dc71facd0c5))
+* add connection with valkey cluster and redis cluster ([#207](https://github.com/terraform-google-modules/terraform-google-service-accounts/issues/207)) ([f5e322d](https://github.com/terraform-google-modules/terraform-google-service-accounts/commit/f5e322df86916e044d8d62343512866ad230c54c))
+
 ## [4.7.0](https://github.com/terraform-google-modules/terraform-google-service-accounts/compare/v4.6.0...v4.7.0) (2026-01-17)
 
 
