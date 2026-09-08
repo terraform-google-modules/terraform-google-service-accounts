@@ -39,15 +39,18 @@ module "project" {
   source  = "terraform-google-modules/project-factory/google"
   version = "~> 18.0"
 
-  name              = "ci-service-accounts"
-  random_project_id = "true"
-  org_id            = var.org_id
-  folder_id         = var.folder_id
-  billing_account   = var.billing_account
+  name                = "ci-service-accounts"
+  random_project_id   = "true"
+  org_id              = var.org_id
+  folder_id           = var.folder_id
+  billing_account     = var.billing_account
+  auto_create_network = true
 
   activate_apis = concat([
     "secretmanager.googleapis.com",
     "cloudfunctions.googleapis.com",
     "cloudbuild.googleapis.com",
+    "run.googleapis.com",
+    "artifactregistry.googleapis.com",
   ], flatten(values(local.per_module_services)))
 }

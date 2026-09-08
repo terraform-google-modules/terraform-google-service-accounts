@@ -72,33 +72,43 @@ resource "google_project_iam_member" "distributor" {
   project  = var.project_id
 }
 
-resource "google_cloudfunctions_function" "function" {
-  project      = var.project_id
-  region       = var.region
-  name         = var.function_name
-  description  = "Generates and encrypts a new Service Account key given a GPG public key"
-  runtime      = "go121"
-  trigger_http = true
 
-  service_account_email = google_service_account.distributor.email
-  source_archive_bucket = google_storage_bucket.function_bucket.name
-  source_archive_object = google_storage_bucket_object.archive.name
-  entry_point           = "GenerateAndEncrypt"
-  environment_variables = {
-    PUBLIC_KEY = file(var.public_key_file)
+resource "google_cloudfunctions2_function" "function" {
+  project     = var.project_id
+  location    = var.region
+  name        = var.function_name
+  description = "Generates and encrypts a new Service Account key given a GPG public key"
+
+  build_config {
+    runtime     = "go126"
+    entry_point = "GenerateAndEncrypt"
+    source {
+      storage_source {
+        bucket = google_storage_bucket.function_bucket.name
+        object = google_storage_bucket_object.archive.name
+      }
+    }
+  }
+
+  service_config {
+    service_account_email = google_service_account.distributor.email
+    environment_variables = {
+      PUBLIC_KEY = file(var.public_key_file)
+    }
   }
 }
 
-resource "google_cloudfunctions_function_iam_member" "invoker" {
+resource "google_cloudfunctions2_function_iam_member" "invoker" {
   for_each       = toset(var.function_members)
   project        = var.project_id
-  cloud_function = google_cloudfunctions_function.function.name
-  region         = var.region
+  location       = var.region
+  cloud_function = google_cloudfunctions2_function.function.name
   role           = "roles/cloudfunctions.invoker"
   member         = each.value
 }
 
 resource "local_file" "invoker" {
+  depends_on      = [time_sleep.wait_for_iam]
   filename        = "get-key"
   file_permission = "0755"
   content = templatefile("${path.module}/templates/get-key.tpl", {
@@ -106,4 +116,14 @@ resource "local_file" "invoker" {
     region   = var.region
     function = var.function_name
   })
+}
+
+resource "time_sleep" "wait_for_iam" {
+  create_duration = "60s"
+  depends_on = [
+    google_organization_iam_member.distributor,
+    google_folder_iam_member.distributor,
+    google_project_iam_member.distributor,
+    google_cloudfunctions2_function_iam_member.invoker
+  ]
 }
