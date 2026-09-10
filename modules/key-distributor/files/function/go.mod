@@ -6,7 +6,7 @@ toolchain go1.26.0
 
 require (
 	golang.org/x/crypto v0.41.0
-	google.golang.org/api v0.249.0
+	google.golang.org/api v0.297.0
 )
 
 require (
