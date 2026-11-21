@@ -2,11 +2,11 @@ module github.com/terraform-google-modules/terraform-google-service-accounts/mod
 
 go 1.26.0
 
-toolchain go1.26.0
+toolchain go1.26.11
 
 require (
 	golang.org/x/crypto v0.41.0
-	google.golang.org/api v0.249.0
+	google.golang.org/api v0.315.0
 )
 
 require (
